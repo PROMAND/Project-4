@@ -34,6 +34,7 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    String nextWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+
                 actionBar.setSelectedNavigationItem(position);
             }
         });
@@ -73,6 +75,10 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
+        mViewPager.setCurrentItem(4); /** I. Starts from profile window, shoud add check if it is the first load **/
+
+
     }
 
 
@@ -100,7 +106,9 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
+
         mViewPager.setCurrentItem(tab.getPosition());
+
     }
 
     @Override
@@ -130,8 +138,8 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
 
         @Override
@@ -144,6 +152,8 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
                     return getString(R.string.title_section2).toUpperCase(l);
                 case 2:
                     return getString(R.string.title_section3).toUpperCase(l);
+                case 3:
+                    return getString(R.string.title_section4).toUpperCase(l);
             }
             return null;
         }
@@ -158,6 +168,7 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -177,11 +188,35 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView;
+            switch (getArguments().getInt(ARG_SECTION_NUMBER))
+            {
+                case 1:
+                     rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+                    break;
+                case 2:
+                     rootView = inflater.inflate(R.layout.profile_cv_preview, container, false);
+                    break;
+                case 3:
+                     rootView = inflater.inflate(R.layout.profile_general_info, container, false);
+                    break;
+                case 4:
+                     rootView = inflater.inflate(R.layout.profile_personal_strong_sides, container, false);
+                    break;
+                default:
+                     rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+                    break;
+            }
+
+            //View rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+
+           // TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+           // textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+
             return rootView;
+
         }
+
     }
 
 }
