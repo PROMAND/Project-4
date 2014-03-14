@@ -7,6 +7,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -30,6 +32,7 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
 
+    Intent profileGeneralInfoIntent;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -184,15 +187,16 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
 
         public PlaceholderFragment() {
         }
-
+        public ViewGroup some;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            some = container;
             View rootView;
             switch (getArguments().getInt(ARG_SECTION_NUMBER))
             {
                 case 1:
-                     rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+                    rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
                     break;
                 case 2:
                      rootView = inflater.inflate(R.layout.profile_cv_preview, container, false);
@@ -201,20 +205,27 @@ public class MainActivity2 extends Activity implements ActionBar.TabListener {
                      rootView = inflater.inflate(R.layout.profile_general_info, container, false);
                     break;
                 case 4:
-                     rootView = inflater.inflate(R.layout.profile_personal_strong_sides, container, false);
+                     rootView = inflater.inflate(R.layout.profile_main_view, container, false);
+                     Button mButton = (Button) rootView.findViewById(R.id.btn_my_profile_general);
+                     mButton.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             Fragment fr = new ProfileGeneralInfoFragment();
+                             FragmentTransaction fto = getFragmentManager().beginTransaction();
+
+                             fto.replace(some.getId(), fr);
+                             fto.addToBackStack(null);
+                             fto.commit();
+                         }
+                     });
+
                     break;
                 default:
                      rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
                     break;
             }
 
-            //View rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
-
-           // TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-           // textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-
             return rootView;
-
         }
 
     }

@@ -29,6 +29,7 @@
     <string name="btn_link_profile">Link to profile</string>
     <string name="btn_preview_cv">Preview CV</string>
     <string name="btn_download_cv">Download CV</string>
+    <string name="btn_profile">Profile</string>
     <string name="my_experiences">My Experiences</string>
     <string name="my_trainings">My Trainings</string>
     <string name="my_education">My Education</string>
