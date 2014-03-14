@@ -30,24 +30,24 @@ public class MainActivity extends Activity {
         JSONParser jParser = new JSONParser();
         // Getting JSON from URL
         JSONObject json = jParser.getJSONFromUrl(url);
-        try {
+//        try {
             // Getting JSON Array
-            user = json.getJSONArray(TAG_USER);
-            JSONObject c = user.getJSONObject(0);
-            // Storing  JSON item in a Variable
-            String id = c.getString(TAG_ID);
-            String name = c.getString(TAG_NAME);
-            String email = c.getString(TAG_EMAIL);
+//            user = json.getJSONArray(TAG_USER);
+//            JSONObject c = user.getJSONObject(0);
+//            // Storing  JSON item in a Variable
+//            String id = c.getString(TAG_ID);
+//            String name = c.getString(TAG_NAME);
+//            String email = c.getString(TAG_EMAIL);
             //Importing TextView
-            final TextView uid = (TextView)findViewById(R.id.uid);
-            final TextView name1 = (TextView)findViewById(R.id.name);
-            final TextView email1 = (TextView)findViewById(R.id.email);
-            //Set JSON Data in TextView
-            uid.setText(id);
-            name1.setText(name);
-            email1.setText(email);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+           // final TextView uid = (TextView)findViewById(R.id.uid);
+           // final TextView name1 = (TextView)findViewById(R.id.name);
+          //  final TextView email1 = (TextView)findViewById(R.id.email);
+//            //Set JSON Data in TextView
+//            uid.setText(id);
+//            name1.setText(name);
+//            email1.setText(email);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
     }
 }
