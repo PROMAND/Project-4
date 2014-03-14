@@ -3,6 +3,33 @@
 
     <string name="app_name">Project-4</string>
     <string name="hello_world">Hello world!</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_attachment">Attachment</string>
+    <string name="btn_send">Send</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_profile_general">General info</string>
+    <string name="my_profile_skills">Skills</string>
+    <string name="my_profile_personal">Personal info</string>
+    <string name="my_profile_linkedIn">Link to LinkedIn</string>
+    <string name="my_profile_cv">Generate CV</string>
+    <string name="btn_done">Done</string>
+    <string name="btn_gender">Gender</string>
+    <string name="btn_experience">Experience</string>
+    <string name="btn_training">Training</string>
+    <string name="btn_education">Education</string>
+    <string name="btn_interests">Interests</string>
+    <string name="btn_strong_sides">Strong sides</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_link_profile">Link to profile</string>
+    <string name="btn_preview_cv">Preview CV</string>
+    <string name="btn_download_cv">Download CV</string>
+    <string name="my_experiences">My Experiences</string>
+    <string name="my_trainings">My Trainings</string>
+    <string name="my_education">My Education</string>
+    <string name="my_interests">My Interests</string>
+    <string name="my_strong_sides">My Strong Sides</string>
+    <string name="link_to_linked_in">LinkedIn to My Profile</string>
     <string name="action_settings">Settings</string>
 
 </resources>
