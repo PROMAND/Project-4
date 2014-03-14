@@ -6,35 +6,48 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-
-public class MainActivity extends ActionBarActivity {
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+//import learn2crack.jsonparsing.library.JSONParser;
+public class MainActivity extends Activity {
+    //URL to get JSON Array
+    private static String url = "http://localhost:8888/JSON/";
+    //JSON Node Names
+    private static final String TAG_USER = "user";
+    private static final String TAG_ID = "id";
+    private static final String TAG_NAME = "name";
+    private static final String TAG_EMAIL = "email";
+    JSONArray user = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
-        Toast.makeText(MainActivity.this,"LALALA",Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        setContentView(R.layout.activity_main);
+        // Creating new JSON Parser
+        JSONParser jParser = new JSONParser();
+        // Getting JSON from URL
+        JSONObject json = jParser.getJSONFromUrl(url);
+        try {
+            // Getting JSON Array
+            user = json.getJSONArray(TAG_USER);
+            JSONObject c = user.getJSONObject(0);
+            // Storing  JSON item in a Variable
+            String id = c.getString(TAG_ID);
+            String name = c.getString(TAG_NAME);
+            String email = c.getString(TAG_EMAIL);
+            //Importing TextView
+            final TextView uid = (TextView)findViewById(R.id.uid);
+            final TextView name1 = (TextView)findViewById(R.id.name);
+            final TextView email1 = (TextView)findViewById(R.id.email);
+            //Set JSON Data in TextView
+            uid.setText(id);
+            name1.setText(name);
+            email1.setText(email);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return super.onOptionsItemSelected(item);
     }
-
 }
