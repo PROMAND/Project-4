@@ -61,70 +61,56 @@ public class ViewPagerPlaceholderFragment extends Fragment {
                 generalInfoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Fragment fr = new ProfileGeneralInfoFragment();
-                        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-                        fto.replace(R.id.content_frame, fr);
-                        fto.addToBackStack(null);
-                        fto.commit();
+                        btnClick(new ProfileGeneralInfoFragment());
                     }
                 });
 
                 skillsBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Fragment fr = new ProfileSkillsFragment();
-                        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-                        fto.replace(R.id.content_frame, fr);
-                        fto.addToBackStack(null);
-                        fto.commit();
+                        btnClick(new ProfileSkillsFragment());
                     }
                 });
 
                 personalInfoBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Fragment fr = new ProfilePersonalFragment();
-                        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-                        fto.replace(R.id.content_frame, fr);
-                        fto.addToBackStack(null);
-                        fto.commit();
+                        btnClick(new ProfilePersonalFragment());
                     }
                 });
 
                 linkedinBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Fragment fr = new ProfileLinkedinFragment();
-                        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-                        fto.replace(R.id.content_frame, fr);
-                        fto.addToBackStack(null);
-                        fto.commit();
+                        btnClick(new ProfileLinkedinFragment());
                     }
                 });
 
                 cvBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Fragment fr = new ProfileCvFragment();
-                        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-                        fto.replace(R.id.content_frame, fr);
-                        fto.addToBackStack(null);
-                        fto.commit();
+                        btnClick(new ProfileCvFragment());
                     }
                 });
 
                 break;
             default:
-                rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+                rootView = inflater.inflate(R.layout.profile_main_view, container, false);
                 break;
         }
 
         return rootView;
+    }
+
+    //Button click - to replace current fragment with new one
+    public void btnClick(Fragment fragment)
+    {
+        Fragment fr = fragment;
+        FragmentTransaction fto = getFragmentManager().beginTransaction();
+
+        fto.replace(R.id.content_frame, fr);
+        fto.addToBackStack(null);
+        fto.commit();
     }
 
 }

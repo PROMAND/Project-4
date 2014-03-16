@@ -13,9 +13,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="95dp"
-        android:textSize="30sp"
-        android:height="60dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,8 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="100dp"
-        android:textSize="30sp"
-        android:height="60dp"/>
+        android:textSize="25sp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -49,6 +48,5 @@
         android:layout_alignTop="@+id/btn_attach_send_to_office"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="30sp"
-        android:height="60dp"/>
+        android:textSize="25sp"/>
 </RelativeLayout>
