@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
         android:id="@+id/btn_back_linked_in"
-        android:layout_marginTop="70dp"
-        android:textSize="30sp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:text="@string/link_to_linked_in"
         android:id="@+id/textView_linked_in"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:layout_marginTop="20dp"/>
 
     <EditText

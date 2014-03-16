@@ -10,8 +10,9 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
         android:id="@+id/btn_back_interests"
-        android:layout_marginTop="70dp"
-        android:textSize="30sp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:id="@+id/textView_interests"
         android:layout_below="@+id/btn_back_interests"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:layout_marginTop="10dp"/>
 
     <Button
@@ -31,7 +32,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="30sp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -41,7 +44,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="30sp"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,8 +56,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_interests_cancel"
-        android:layout_alignRight="@+id/btn_interests_ok"
-        android:layout_alignEnd="@+id/btn_interests_ok"
-        android:background="#fdffe3" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#fdffe3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -8,19 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileGeneralInfoFragment extends Fragment {
+public class ProfilePersonalStrongsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_general_info, container, false);
+        View view = inflater.inflate(R.layout.profile_personal_strong_sides, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -29,23 +28,36 @@ public class ProfileGeneralInfoFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button back = (Button)view.findViewById(R.id.btn_back_profile_general);
-        Button done = (Button)view.findViewById(R.id.btn_my_profile_done);
+        Button backBtn = (Button)view.findViewById(R.id.btn_back_strong_sides);
+        Button okBtn = (Button)view.findViewById(R.id.btn_strong_sides_ok);
+        Button cancelBtn = (Button)view.findViewById(R.id.btn_strong_sides_cancel);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfilePersonalFragment());
             }
         });
 
-        done.setOnClickListener(new View.OnClickListener() {
+        okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfilePersonalFragment());
             }
         });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfilePersonalFragment());
+            }
+        });
+
+        TextView textView = (TextView)view.findViewById(R.id.textView_strong_sides_area);
+        textView.setHint("Here I will describe my personal strong sides");
+
     }
+
     //Button click - to replace current fragment with new one
     public void btnClick(Fragment fragment)
     {
@@ -63,6 +75,4 @@ public class ProfileGeneralInfoFragment extends Fragment {
         Log.v("pl.byd.wsg.promand.project4", "Fragment onStart()");
 
     }
-
-
 }

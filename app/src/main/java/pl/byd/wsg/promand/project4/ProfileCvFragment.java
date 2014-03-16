@@ -8,19 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileGeneralInfoFragment extends Fragment {
+public class ProfileCvFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_general_info, container, false);
+        View view = inflater.inflate(R.layout.profile_cv_main, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -29,8 +27,8 @@ public class ProfileGeneralInfoFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button back = (Button)view.findViewById(R.id.btn_back_profile_general);
-        Button done = (Button)view.findViewById(R.id.btn_my_profile_done);
+        Button back = (Button)view.findViewById(R.id.btn_back_profile_cv_main);
+        Button preview = (Button)view.findViewById(R.id.btn_cv_main_preview);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +37,14 @@ public class ProfileGeneralInfoFragment extends Fragment {
             }
         });
 
-        done.setOnClickListener(new View.OnClickListener() {
+        preview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileCvPreviewFragment());
             }
         });
     }
+
     //Button click - to replace current fragment with new one
     public void btnClick(Fragment fragment)
     {
@@ -63,6 +62,4 @@ public class ProfileGeneralInfoFragment extends Fragment {
         Log.v("pl.byd.wsg.promand.project4", "Fragment onStart()");
 
     }
-
-
 }

@@ -7,20 +7,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileGeneralInfoFragment extends Fragment {
+public class ProfileSkillsExperienceFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_general_info, container, false);
+        View view = inflater.inflate(R.layout.profile_skills_experience, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -29,23 +31,42 @@ public class ProfileGeneralInfoFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button back = (Button)view.findViewById(R.id.btn_back_profile_general);
-        Button done = (Button)view.findViewById(R.id.btn_my_profile_done);
+        Button backBtn = (Button)view.findViewById(R.id.btn_back_experience);
+        Button okBtn = (Button)view.findViewById(R.id.btn_experience_ok);
+        Button cancelBtn = (Button)view.findViewById(R.id.btn_experience_cancel);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileSkillsFragment());
             }
         });
 
-        done.setOnClickListener(new View.OnClickListener() {
+        okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileSkillsFragment());
             }
         });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfileSkillsFragment());
+            }
+        });
+
+        ListView listView = (ListView)view.findViewById(R.id.listView_experiences);
+        //Sample data for experiences list
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("programming");
+        list.add("cooking");
+        list.add("fishing");
+        list.add("sleeping");
+
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
     }
+
     //Button click - to replace current fragment with new one
     public void btnClick(Fragment fragment)
     {
@@ -63,6 +84,4 @@ public class ProfileGeneralInfoFragment extends Fragment {
         Log.v("pl.byd.wsg.promand.project4", "Fragment onStart()");
 
     }
-
-
 }
