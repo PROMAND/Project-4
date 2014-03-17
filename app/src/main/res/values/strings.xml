@@ -38,5 +38,9 @@
     <string name="link_to_linked_in">LinkedIn to My Profile</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_jsonparser">JSONParser</string>
-
+    <string-array name="articleList">
+        <item>How to write CV</item>
+        <item>How to prepare for an interview</item>
+        <item>How to write Job aplication</item>
+    </string-array>
 </resources>

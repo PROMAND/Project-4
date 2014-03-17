@@ -23,8 +23,8 @@ public class ProfileSkillsFragment extends Fragment {
         return view;
     }
 
-    public void onViewCreated(View view, Bundle savedInstanceState)
-    {
+    public void onViewCreated(View view, Bundle savedInstanceState){
+
         super.onViewCreated(view, savedInstanceState);
 
         Button back = (Button)view.findViewById(R.id.btn_back_profile_skills);
