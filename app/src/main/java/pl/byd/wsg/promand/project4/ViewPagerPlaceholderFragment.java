@@ -41,7 +41,7 @@ public class ViewPagerPlaceholderFragment extends Fragment {
         switch (getArguments().getInt(ARG_SECTION_NUMBER))
         {
             case 1:
-                rootView = inflater.inflate(R.layout.profile_cv_main, container, false);
+                rootView = inflater.inflate(R.layout.job_office_main_view, container, false);
                 break;
             case 2:
                 rootView = inflater.inflate(R.layout.list_item1, container, false);

@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pl.byd.wsg.promand.project4.MainActivity2$PlaceholderFragment">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_articles_search"
+        android:id="@+id/editText_job_office_search"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="Search for articles"/>
+        android:hint="Search for offers"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_item1"
-        android:entries="@array/articleList"
-        android:layout_below="@+id/editText_articles_search">
-
-
-
-        </ListView>
+        android:id="@+id/listView_job_office"
+        android:entries="@array/jobOfficeList"
+        android:layout_below="@+id/editText_job_office_search">
+     </ListView>
 
 </RelativeLayout>

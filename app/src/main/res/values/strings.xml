@@ -43,4 +43,9 @@
         <item>How to prepare for an interview</item>
         <item>How to write Job aplication</item>
     </string-array>
+    <string-array name="jobOfficeList">
+        <item>Job offer for Programmer</item>
+        <item>IT specialist needed</item>
+        <item>Practice opportunity for administrator</item>
+    </string-array>
 </resources>
