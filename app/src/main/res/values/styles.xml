@@ -9,6 +9,8 @@
     </style>
     <style name="Our_Custom_Theme">
         <item name="android:fontFamily">Robato</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="android:colorBackgroundCacheHint">#00000000</item>
 
 
     </style>
