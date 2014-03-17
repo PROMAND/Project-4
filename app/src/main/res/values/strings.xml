@@ -44,15 +44,4 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_jsonparser">JSONParser</string>
 
-    <!-- Sample data -->
-    <string-array name="articleList">
-        <item>How to write CV</item>
-        <item>How to prepare for an interview</item>
-        <item>How to write Job aplication</item>
-    </string-array>
-    <string-array name="jobOfficeList">
-        <item>Job offer for Programmer</item>
-        <item>IT specialist needed</item>
-        <item>Practice opportunity for administrator</item>
-    </string-array>
 </resources>

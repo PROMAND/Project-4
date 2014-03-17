@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,14 +48,9 @@ public class ArticlesMainViewFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-
-                //displayDetailsPlacesFragment(position);
-
-
-                String item = ((TextView) view).getText().toString();
-
-                //Toast.makeText(getActivity(), item, Toast.LENGTH_LONG).show();
-
+                Toast.makeText(getActivity(),
+                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+                        .show();
 
             }
         });
