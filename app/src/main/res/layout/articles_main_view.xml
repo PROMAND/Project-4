@@ -18,8 +18,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_item1"
-        android:entries="@array/articleList"
+        android:id="@+id/list_articles"
         android:layout_below="@+id/editText_articles_search">
 
 

@@ -1,5 +1,6 @@
 package pl.byd.wsg.promand.project4;
 
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class EventsMainViewFragment extends ListFragment {
+public class EventsMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

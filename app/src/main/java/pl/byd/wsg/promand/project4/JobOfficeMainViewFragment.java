@@ -1,5 +1,6 @@
 package pl.byd.wsg.promand.project4;
 
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class JobOfficeMainViewFragment extends ListFragment {
+public class JobOfficeMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +31,17 @@ public class JobOfficeMainViewFragment extends ListFragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+        ListView listView = (ListView)view.findViewById(R.id.listView_job_office);
+
+        //Sample data for articles list
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Administrator needed!");
+        list.add("Job for prgogrammer");
+        list.add("Looking for IT specialist");
+        list.add("IT management offer");
+
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
     }
+
 
 }

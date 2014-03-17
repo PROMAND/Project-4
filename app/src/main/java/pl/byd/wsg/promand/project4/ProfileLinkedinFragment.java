@@ -42,7 +42,7 @@ public class ProfileLinkedinFragment extends Fragment {
         Fragment fr = fragment;
         FragmentTransaction fto = getFragmentManager().beginTransaction();
 
-        fto.replace(R.id.content_frame, fr);
+        fto.replace(R.id.fragment_container, fr);
         fto.addToBackStack(null);
         fto.commit();
     }
