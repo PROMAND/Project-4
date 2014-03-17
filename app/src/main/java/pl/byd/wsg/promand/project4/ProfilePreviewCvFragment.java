@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileCvPreviewFragment extends Fragment {
+public class ProfilePreviewCvFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +32,7 @@ public class ProfileCvPreviewFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileCvFragment());
+                btnClick(new ProfileCvMainViewFragment());
             }
         });
     }

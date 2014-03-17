@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.byd.wsg.promand.project4.MainActivity2$PlaceholderFragment">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
-        android:id="@+id/btn_back_profile_personal"
+        android:id="@+id/btn_back_profile_cv_main"
         android:layout_marginTop="50dp"
-        android:textSize="25sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_interests"
-        android:id="@+id/btn_personal_interests"
+        android:text="@string/btn_preview_cv"
+        android:id="@+id/btn_cv_main_preview"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:height="60dp"
         android:textSize="25sp"
-        android:paddingLeft="37dp"
-        android:paddingRight="37dp"/>
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_strong_sides"
-        android:id="@+id/btn_personal_strong_sides"
+        android:text="@string/btn_download_cv"
+        android:id="@+id/btn_cv_main_download"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:height="60dp"
         android:textSize="25sp"
-        android:paddingLeft="17dp"
-        android:paddingRight="17dp"/>
+        />
 
 </LinearLayout>

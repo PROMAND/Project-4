@@ -31,7 +31,7 @@ public class ProfileLinkedinFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileMainViewFragment());
             }
         });
     }

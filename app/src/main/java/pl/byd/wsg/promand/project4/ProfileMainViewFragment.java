@@ -7,22 +7,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileSkillsExperienceFragment extends Fragment {
+public class ProfileMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_skills_experience, container, false);
+        View view = inflater.inflate(R.layout.profile_main_view, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -31,40 +27,46 @@ public class ProfileSkillsExperienceFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button backBtn = (Button)view.findViewById(R.id.btn_back_experience);
-        Button okBtn = (Button)view.findViewById(R.id.btn_experience_ok);
-        Button cancelBtn = (Button)view.findViewById(R.id.btn_experience_cancel);
+        Button generalInfoButton = (Button) view.findViewById(R.id.btn_my_profile_general);
+        Button skillsBtn = (Button) view.findViewById(R.id.btn_my_profile_skills);
+        Button personalInfoBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
+        Button linkedinBtn = (Button) view.findViewById(R.id.btn_my_profile_linkedIn);
+        Button cvBtn = (Button) view.findViewById(R.id.btn_my_profile_cv);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        generalInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileGeneralInfoFragment());
             }
         });
 
-        okBtn.setOnClickListener(new View.OnClickListener() {
+        skillsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        personalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfilePersonalMainViewFragment());
             }
         });
 
-        ListView listView = (ListView)view.findViewById(R.id.listView_experiences);
-        //Sample data for experiences list
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("programming");
-        list.add("cooking");
-        list.add("fishing");
-        list.add("sleeping");
+        linkedinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfileLinkedinFragment());
+            }
+        });
 
-        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
+        cvBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfileCvMainViewFragment());
+            }
+        });
     }
 
     //Button click - to replace current fragment with new one

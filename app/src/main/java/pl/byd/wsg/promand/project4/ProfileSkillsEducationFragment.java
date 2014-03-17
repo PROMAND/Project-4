@@ -35,21 +35,21 @@ public class ProfileSkillsEducationFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 

@@ -11,6 +11,6 @@ public class ProfileGenerateCVActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_cv_main);
+        setContentView(R.layout.profile_cv_main_view);
     }
 }

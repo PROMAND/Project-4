@@ -12,13 +12,13 @@ import android.widget.Button;
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileCvFragment extends Fragment {
+public class ProfilePersonalMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_cv_main, container, false);
+        View view = inflater.inflate(R.layout.profile_personal_main_view, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -27,20 +27,28 @@ public class ProfileCvFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button back = (Button)view.findViewById(R.id.btn_back_profile_cv_main);
-        Button preview = (Button)view.findViewById(R.id.btn_cv_main_preview);
+        Button back = (Button)view.findViewById(R.id.btn_back_profile_personal);
+        Button interests = (Button)view.findViewById(R.id.btn_personal_interests);
+        Button strongs = (Button)view.findViewById(R.id.btn_personal_strong_sides);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileMainViewFragment());
             }
         });
 
-        preview.setOnClickListener(new View.OnClickListener() {
+        interests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileCvPreviewFragment());
+                btnClick(new ProfilePersonalIntrestsFragment());
+            }
+        });
+
+        strongs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfilePersonalStrongsFragment());
             }
         });
     }

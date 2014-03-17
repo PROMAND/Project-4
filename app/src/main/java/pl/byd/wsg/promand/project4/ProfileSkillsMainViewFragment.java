@@ -12,59 +12,51 @@ import android.widget.Button;
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileSkillsMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_main_view, container, false);
+        View view = inflater.inflate(R.layout.profile_skills_main_view, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
 
-    public void onViewCreated(View view, Bundle savedInstanceState)
-    {
+    public void onViewCreated(View view, Bundle savedInstanceState){
+
         super.onViewCreated(view, savedInstanceState);
 
-        Button generalInfoButton = (Button) view.findViewById(R.id.btn_my_profile_general);
-        Button skillsBtn = (Button) view.findViewById(R.id.btn_my_profile_skills);
-        Button personalInfoBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
-        Button linkedinBtn = (Button) view.findViewById(R.id.btn_my_profile_linkedIn);
-        Button cvBtn = (Button) view.findViewById(R.id.btn_my_profile_cv);
+        Button back = (Button)view.findViewById(R.id.btn_back_profile_skills);
+        Button experience = (Button)view.findViewById(R.id.btn_skills_experience);
+        Button trainings = (Button)view.findViewById(R.id.btn_skills_training);
+        Button education = (Button)view.findViewById(R.id.btn_skills_education);
 
-        generalInfoButton.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileGeneralInfoFragment());
+                btnClick(new ProfileMainViewFragment());
             }
         });
 
-        skillsBtn.setOnClickListener(new View.OnClickListener() {
+        experience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsExperiencesFragment());
             }
         });
 
-        personalInfoBtn.setOnClickListener(new View.OnClickListener() {
+        trainings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalFragment());
+                btnClick(new ProfileSkillsTrainingFragment());
             }
         });
 
-        linkedinBtn.setOnClickListener(new View.OnClickListener() {
+        education.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileLinkedinFragment());
-            }
-        });
-
-        cvBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileCvFragment());
+                btnClick(new ProfileSkillsEducationFragment());
             }
         });
     }

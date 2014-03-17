@@ -11,6 +11,6 @@ public class ProfileSkillsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_skills);
+        setContentView(R.layout.profile_skills_main_view);
     }
 }

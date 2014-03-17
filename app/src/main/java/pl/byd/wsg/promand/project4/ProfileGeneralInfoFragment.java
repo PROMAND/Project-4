@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 /**
  * Created by Marika on 14.03.14.
@@ -35,14 +33,14 @@ public class ProfileGeneralInfoFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileMainViewFragment());
             }
         });
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileFragment());
+                btnClick(new ProfileMainViewFragment());
             }
         });
     }

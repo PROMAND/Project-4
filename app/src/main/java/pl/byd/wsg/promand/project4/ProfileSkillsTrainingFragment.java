@@ -7,12 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 /**
  * Created by Marika on 14.03.14.
@@ -23,7 +19,7 @@ public class ProfileSkillsTrainingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profile_skills_training, container, false);
+        View view = inflater.inflate(R.layout.profile_skills_trainings, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
         return view;
     }
@@ -39,21 +35,21 @@ public class ProfileSkillsTrainingFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsFragment());
+                btnClick(new ProfileSkillsMainViewFragment());
             }
         });
 

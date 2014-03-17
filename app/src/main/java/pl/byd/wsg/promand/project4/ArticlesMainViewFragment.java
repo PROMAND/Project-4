@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class ArticleListFragment extends ListFragment {
+public class ArticlesMainViewFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

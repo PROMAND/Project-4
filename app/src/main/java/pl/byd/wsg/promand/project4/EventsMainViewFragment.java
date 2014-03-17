@@ -14,13 +14,13 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class JobOfficeListFragment extends ListFragment {
+public class EventsMainViewFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.job_office_main_view, container, false);
+        View view = inflater.inflate(R.layout.events_main_view, container, false);
         Log.v("pl.byd.wsg.promand.project4", "View inflated");
 
         return view;

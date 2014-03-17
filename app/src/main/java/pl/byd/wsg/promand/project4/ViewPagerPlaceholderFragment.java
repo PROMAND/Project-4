@@ -68,14 +68,14 @@ public class ViewPagerPlaceholderFragment extends Fragment {
                 skillsBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        btnClick(new ProfileSkillsFragment());
+                        btnClick(new ProfileSkillsMainViewFragment());
                     }
                 });
 
                 personalInfoBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        btnClick(new ProfilePersonalFragment());
+                        btnClick(new ProfilePersonalMainViewFragment());
                     }
                 });
 
@@ -89,7 +89,7 @@ public class ViewPagerPlaceholderFragment extends Fragment {
                 cvBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        btnClick(new ProfileCvFragment());
+                        btnClick(new ProfileCvMainViewFragment());
                     }
                 });
 

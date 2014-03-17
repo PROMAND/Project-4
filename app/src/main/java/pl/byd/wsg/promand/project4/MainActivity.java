@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity2 extends Activity {
+public class MainActivity extends Activity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

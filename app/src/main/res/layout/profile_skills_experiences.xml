@@ -3,13 +3,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.byd.wsg.promand.project4.MainActivity2$PlaceholderFragment">
+    tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
-        android:id="@+id/btn_back_trainings"
+        android:id="@+id/btn_back_experience"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
         android:textSize="25sp"/>
@@ -17,9 +17,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/my_trainings"
-        android:id="@+id/textView_trainings"
-        android:layout_below="@+id/btn_back_trainings"
+        android:text="@string/my_experiences"
+        android:id="@+id/textView_experiences"
+        android:layout_below="@+id/btn_back_experience"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
         android:layout_marginTop="10dp"/>
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_cancel"
-        android:id="@+id/btn_trainings_cancel"
+        android:id="@+id/btn_experience_cancel"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_ok"
-        android:id="@+id/btn_trainings_ok"
+        android:id="@+id/btn_experience_ok"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -48,19 +48,13 @@
         android:layout_marginBottom="10dp"
         android:textSize="25sp"/>
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_trainings_area"
-        android:layout_below="@+id/textView_trainings"
+        android:id="@+id/listView_experiences"
+        android:layout_below="@+id/textView_experiences"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btn_trainings_cancel"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#fdffe3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:editable="true"/>
+        android:layout_above="@+id/btn_experience_cancel" />
 
 </RelativeLayout>

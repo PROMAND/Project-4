@@ -35,21 +35,21 @@ public class ProfilePersonalStrongsFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalFragment());
+                btnClick(new ProfilePersonalMainViewFragment());
             }
         });
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalFragment());
+                btnClick(new ProfilePersonalMainViewFragment());
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalFragment());
+                btnClick(new ProfilePersonalMainViewFragment());
             }
         });
 
