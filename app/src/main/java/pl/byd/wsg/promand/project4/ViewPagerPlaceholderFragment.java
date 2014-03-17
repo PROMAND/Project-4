@@ -44,7 +44,7 @@ public class ViewPagerPlaceholderFragment extends Fragment {
                 rootView = inflater.inflate(R.layout.job_office_main_view, container, false);
                 break;
             case 2:
-                rootView = inflater.inflate(R.layout.list_item1, container, false);
+                rootView = inflater.inflate(R.layout.articles_main_view, container, false);
                 break;
             case 3:
                 rootView = inflater.inflate(R.layout.profile_general_info, container, false);
