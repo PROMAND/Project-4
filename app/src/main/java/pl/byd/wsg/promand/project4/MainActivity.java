@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         //create the two fragments we want to use for display content
         Fragment ProfileMainViewFragment = new ProfileMainViewFragment(ProfileTab);
         Fragment JobOfficeMainViewFragment = new JobOfficeMainViewFragment();
-        Fragment ArticlesMainViewFragment = new ArticlesMainViewFragment();
+        Fragment ArticlesMainViewFragment = new ArticlesMainViewFragment(ArticlesTab);
         Fragment EventsMainViewFragment = new EventsMainViewFragment();
 
         //set the Tab listener. Now we can listen for clicks.

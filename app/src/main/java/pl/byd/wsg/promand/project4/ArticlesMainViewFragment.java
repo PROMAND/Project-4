@@ -1,5 +1,6 @@
 package pl.byd.wsg.promand.project4;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -19,7 +20,11 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class ArticlesMainViewFragment extends Fragment implements ListView.OnItemClickListener{
+public class ArticlesMainViewFragment extends JustAFragment implements ListView.OnItemClickListener{
+
+    public ArticlesMainViewFragment(ActionBar.Tab tab) {
+        super(tab);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,25 +51,10 @@ public class ArticlesMainViewFragment extends Fragment implements ListView.OnIte
         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
         listView.setOnItemClickListener(this);
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position,
-//                                    long id) {
-//                Toast.makeText(getActivity(),
-//                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-//                        .show();
-//
-//            }
-//        });
 
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        SeparateArticle newArticle = new SeparateArticle(parent.getItemAtPosition(position).toString());
-        FragmentTransaction newTransaction  = getFragmentManager().beginTransaction();
-        newTransaction.replace(R.id.fragment_container,newArticle);
-        newTransaction.addToBackStack(null);
-        newTransaction.commit();
+        super.btnClick(new SeparateArticle(parent.getItemAtPosition(position).toString(), super.tab));
     }
-
 }

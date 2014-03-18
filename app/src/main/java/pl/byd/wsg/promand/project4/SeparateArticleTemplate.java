@@ -1,5 +1,6 @@
 package pl.byd.wsg.promand.project4;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,10 +11,11 @@ import android.widget.TextView;
 /**
  * Created by Paladin on 3/18/14.
  */
-public class SeparateArticleTemplate extends Fragment
+public class SeparateArticleTemplate extends JustAFragment
 {
     String ourText;
-    public SeparateArticleTemplate(String ourText) {
+    public SeparateArticleTemplate(String ourText,ActionBar.Tab tab) {
+        super(tab);
         this.ourText = ourText;
     }
     @Override

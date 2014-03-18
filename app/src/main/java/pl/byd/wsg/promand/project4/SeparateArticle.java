@@ -1,5 +1,7 @@
 package pl.byd.wsg.promand.project4;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,9 +15,9 @@ import android.widget.TextView;
  */
 public class SeparateArticle extends SeparateArticleTemplate
 {
-    public SeparateArticle(String ourText)
+    public SeparateArticle(String ourText,ActionBar.Tab tab)
     {
-        super(ourText);
+        super(ourText,tab);
     }
 
     @Override
@@ -26,7 +28,8 @@ public class SeparateArticle extends SeparateArticleTemplate
         sendToFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Activity pas = getActivity();
+                new SendToFriend(pas);
             }
         });
 
