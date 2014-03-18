@@ -38,7 +38,7 @@ public class ArticlesMainViewFragment extends Fragment implements ListView.OnIte
 
         //Sample data for articles list
         ArrayList<String> list = new ArrayList<String>();
-        list.add("How to create CV");
+        list.add(getString(R.string.text));
         list.add("How to prepare for interview");
         list.add("How to dress");
         list.add("How to apply for a job");
