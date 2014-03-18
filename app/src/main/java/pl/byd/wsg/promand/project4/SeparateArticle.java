@@ -19,7 +19,7 @@ public class SeparateArticle extends SeparateArticleTemplate
     {
         super(ourText,tab);
     }
-
+    private SeparateArticle badSolution = this;
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -28,8 +28,7 @@ public class SeparateArticle extends SeparateArticleTemplate
         sendToFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity pas = getActivity();
-                new SendToFriend(pas);
+                btnClick(new SendToFriend(tab,badSolution));
             }
         });
 
