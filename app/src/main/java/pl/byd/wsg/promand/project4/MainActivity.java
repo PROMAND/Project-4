@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         ActionBar.Tab EventsTab = actionbar.newTab().setText("Events");
 
         //create the two fragments we want to use for display content
-        Fragment ProfileMainViewFragment = new ProfileMainViewFragment();
+        Fragment ProfileMainViewFragment = new ProfileMainViewFragment(ProfileTab);
         Fragment JobOfficeMainViewFragment = new JobOfficeMainViewFragment();
         Fragment ArticlesMainViewFragment = new ArticlesMainViewFragment();
         Fragment EventsMainViewFragment = new EventsMainViewFragment();

@@ -1,6 +1,7 @@
 package pl.byd.wsg.promand.project4;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -22,7 +23,12 @@ import java.util.ArrayList;
 /**
  * Created by Marika on 14.03.14.
  */
-public class ProfileSkillsExperiencesFragment extends Fragment {
+public class ProfileSkillsExperiencesFragment extends JustAFragment {
+
+    public ProfileSkillsExperiencesFragment(ActionBar.Tab tab)
+    {
+        super(tab);
+    }
 
     MyCustomAdapter dataAdapter = null;
 
@@ -43,14 +49,14 @@ public class ProfileSkillsExperiencesFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment());
+                btnClick(new ProfileSkillsMainViewFragment(tab));
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment());
+                btnClick(new ProfileSkillsMainViewFragment(tab));
             }
         });
 
@@ -59,17 +65,6 @@ public class ProfileSkillsExperiencesFragment extends Fragment {
 
         // Generate data for experiences list
         displayListView(view);
-    }
-
-    //Button click - to replace current fragment with new one
-    public void btnClick(Fragment fragment)
-    {
-        Fragment fr = fragment;
-        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-        fto.replace(R.id.fragment_container, fr);
-        fto.addToBackStack(null);
-        fto.commit();
     }
 
     //Example from http://developerandro.blogspot.com/2013/09/listview-with-checkbox-android-example.html

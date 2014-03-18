@@ -1,89 +1,78 @@
 package pl.byd.wsg.promand.project4;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 /**
- * Created by Marika on 14.03.14.
+ * Created by Marika on 17.03.14.
  */
-public class ProfileMainViewFragment extends Fragment {
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public class ProfileMainViewFragment extends JustAFragment {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.profile_main_view, container, false);
-        Log.v("pl.byd.wsg.promand.project4", "View inflated");
-        return view;
+    public ProfileMainViewFragment(ActionBar.Tab tab)
+    {
+        super(tab);
     }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.profile_main_view, container, false);
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-
-        Button generalInfoButton = (Button) view.findViewById(R.id.btn_my_profile_general);
-        Button skillsBtn = (Button) view.findViewById(R.id.btn_my_profile_skills);
-        Button personalInfoBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
-        Button linkedinBtn = (Button) view.findViewById(R.id.btn_my_profile_linkedIn);
+        Button generalInfoBtn = (Button) view.findViewById(R.id.btn_my_profile_general);
+        Button linkedInBtn = (Button) view.findViewById(R.id.btn_my_profile_linkedIn);
         Button cvBtn = (Button) view.findViewById(R.id.btn_my_profile_cv);
+        Button skillsBtn = (Button) view.findViewById(R.id.btn_my_profile_skills);
+        Button personalBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
 
-        generalInfoButton.setOnClickListener(new View.OnClickListener() {
+        generalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileGeneralInfoFragment());
+                btnClick(new ProfileGeneralInfoFragment(tab));
             }
         });
 
-        skillsBtn.setOnClickListener(new View.OnClickListener() {
+        linkedInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment());
-            }
-        });
-
-        personalInfoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfilePersonalMainViewFragment());
-            }
-        });
-
-        linkedinBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileLinkedinFragment());
+                btnClick(new ProfileLinkedinFragment(tab));
             }
         });
 
         cvBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileCvMainViewFragment());
+                btnClick(new ProfileCvMainViewFragment(tab));
+            }
+        });
+
+        skillsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfileSkillsMainViewFragment(tab));
+            }
+        });
+
+        personalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnClick(new ProfilePersonalMainViewFragment(tab));
             }
         });
     }
 
-    //Button click - to replace current fragment with new one
-    public void btnClick(Fragment fragment)
-    {
-        Fragment fr = fragment;
-        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-        fto.replace(R.id.fragment_container, fr);
-        fto.addToBackStack(null);
-        fto.commit();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.v("pl.byd.wsg.promand.project4", "Fragment onStart()");
-
-    }
 }
