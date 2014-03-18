@@ -1,12 +1,14 @@
 package pl.byd.wsg.promand.project4;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class JobOfficeMainViewFragment extends Fragment {
+public class JobOfficeMainViewFragment extends Fragment implements AdapterView.OnItemClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +43,16 @@ public class JobOfficeMainViewFragment extends Fragment {
         list.add("IT management offer");
 
         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
+        listView.setOnItemClickListener(this);
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        SeparateArticle newArticle = new SeparateArticle(parent.getItemAtPosition(position).toString());
+        FragmentTransaction newTransaction  = getFragmentManager().beginTransaction();
+        newTransaction.replace(R.id.fragment_container,newArticle);
+        newTransaction.addToBackStack(null);
+        newTransaction.commit();
+    }
 }

@@ -7,7 +7,11 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Light blue theme. -->
     </style>
-    <style name="Our_Custom_Theme">
+    <style name="Our_Custom_Theme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+
+        <item name="android:textStyle">normal</item>
+        <item name="android:textViewStyle">@style/AppTheme</item>
         <item name="android:fontFamily">Robato</item>
         <item name="android:windowBackground">@drawable/bg_gradient</item>
         <item name="android:colorBackgroundCacheHint">#00000000</item>
