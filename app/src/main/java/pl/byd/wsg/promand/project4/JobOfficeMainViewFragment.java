@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by mesfint on 3/16/14.
  */
-public class JobOfficeMainViewFragment extends Fragment implements AdapterView.OnItemClickListener{
+public class JobOfficeMainViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,16 +43,9 @@ public class JobOfficeMainViewFragment extends Fragment implements AdapterView.O
         list.add("IT management offer");
 
         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
-        listView.setOnItemClickListener(this);
+
     }
 
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        SeparateArticle newArticle = new SeparateArticle(parent.getItemAtPosition(position).toString());
-        FragmentTransaction newTransaction  = getFragmentManager().beginTransaction();
-        newTransaction.replace(R.id.fragment_container,newArticle);
-        newTransaction.addToBackStack(null);
-        newTransaction.commit();
-    }
+
 }
