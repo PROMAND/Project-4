@@ -48,19 +48,20 @@
         android:layout_marginBottom="10dp"
         android:textSize="25sp"/>
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
         android:id="@+id/textView_education_area"
-        android:layout_below="@+id/textView_education"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_education_cancel"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
         android:background="#fdffe3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:editable="true"/>
+        android:layout_below="@+id/textView_education" />
+
 
 </RelativeLayout>

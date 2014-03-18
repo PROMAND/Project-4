@@ -38,11 +38,11 @@
         android:layout_marginTop="20dp"
         android:textSize="25sp"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="108dp"
         android:layout_height="wrap_content"
-        android:text="@string/btn_gender"
-        android:id="@+id/btn_my_profile_gender"
+        android:id="@+id/editText_my_profile_gender"
+        android:hint="gender"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:textSize="25sp"/>

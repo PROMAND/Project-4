@@ -22,6 +22,7 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
     {
         super(tab);
     }
+    private MyCareerUserDao datasource;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +34,13 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+
+        datasource = new MyCareerUserDao(getActivity());
+        datasource.open();
+
+        MyCareerUser myUser = datasource.getUser();
+
+        TextView textView = (TextView)view.findViewById(R.id.textView_education_area);
         Button backBtn = (Button) view.findViewById(R.id.btn_back_education);
         Button okBtn = (Button)view.findViewById(R.id.btn_education_ok);
         Button cancelBtn = (Button)view.findViewById(R.id.btn_education_cancel);
@@ -58,8 +66,12 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
             }
         });
 
-        TextView textView = (TextView)view.findViewById(R.id.textView_education_area);
-        textView.setHint("Here I will describe my education");
+        if(!myUser.getEducation().equalsIgnoreCase("")){
+            textView.setText(myUser.getEducation());
+        }
+        else {
+            textView.setHint("Here I will describe my education");
+        }
 
     }
 
