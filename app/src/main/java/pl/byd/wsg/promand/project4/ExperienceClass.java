@@ -15,6 +15,10 @@ public class ExperienceClass {
         this.selected = selected;
     }
 
+    public ExperienceClass() {
+        super();
+    }
+
     public Integer getCode() {
         return code;
     }

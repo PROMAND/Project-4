@@ -10,8 +10,9 @@ import android.util.Log;
  */
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
-    //Table name
+    //Tables names
     public static final String TABLE_USERS = "User";
+    public static final String TABLE_EXPERIENCES = "Experience";
 
     //Table columns
     public static final String COLUMN_ID = "_id";
@@ -23,6 +24,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EDUCATION = "education";
     public static final String COLUMN_INTERESTS = "interests";
     public static final String COLUMN_STRONGS = "strongSides";
+
+    public static final String COLUMN_CODE = "code";
+    public static final String COLUMN_EXPERIENCE = "name";
+    public static final String COLUMN_SELECTED = "selected";
 
     //Database name and version
     private static final String DATABASE_NAME = "MyCareer.db";
@@ -41,6 +46,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + " text null, " + COLUMN_STRONGS
             + " text null);";
 
+    private static final String CREATE_TABLE_EXPERIENCE =
+            " create table " + TABLE_EXPERIENCES +
+                    " (" + COLUMN_CODE
+                    + " integer primary key autoincrement," + COLUMN_EXPERIENCE
+                    + " text not null, " + COLUMN_SELECTED
+                    + " text not null);";
+
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -48,6 +61,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
+        database.execSQL(CREATE_TABLE_EXPERIENCE);
     }
 
     @Override
@@ -57,6 +71,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                         + newVersion + ", which will destroy all old data"
         );
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXPERIENCES);
         onCreate(db);
     }
 }

@@ -15,7 +15,6 @@ import android.widget.TextView;
 /**
  * Created by Marika on 17.03.14.
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ProfileSkillsEducationFragment extends JustAFragment {
 
     public ProfileSkillsEducationFragment(ActionBar.Tab tab)
@@ -30,7 +29,6 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
         return inflater.inflate(R.layout.profile_skills_education, container, false);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
@@ -38,9 +36,10 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
         datasource = new MyCareerUserDao(getActivity());
         datasource.open();
 
-        MyCareerUser myUser = datasource.getUser();
+        final MyCareerUser myUser = datasource.getUser();
 
-        TextView textView = (TextView)view.findViewById(R.id.textView_education_area);
+        final TextView textView = (TextView)view.findViewById(R.id.textView_education_area);
+
         Button backBtn = (Button) view.findViewById(R.id.btn_back_education);
         Button okBtn = (Button)view.findViewById(R.id.btn_education_ok);
         Button cancelBtn = (Button)view.findViewById(R.id.btn_education_cancel);
@@ -55,7 +54,9 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
+                //btnClick(new ProfileSkillsMainViewFragment(tab));
+                myUser.setEducation(textView.getText().toString());
+                datasource.updateUser(myUser);
             }
         });
 
