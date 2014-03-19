@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ProfileGeneralInfoFragment extends JustAFragment {
     public ProfileGeneralInfoFragment(ActionBar.Tab tab)
     {
@@ -29,7 +28,6 @@ public class ProfileGeneralInfoFragment extends JustAFragment {
         return inflater.inflate(R.layout.profile_general_info, container, false);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
@@ -43,12 +41,12 @@ public class ProfileGeneralInfoFragment extends JustAFragment {
             datasource.createUser(user);
         }
 
-        MyCareerUser myUser = datasource.getUser();
+        final MyCareerUser myUser = datasource.getUser();
 
-        EditText firstName = (EditText)view.findViewById(R.id.editText_my_profile_name);
-        EditText lastName = (EditText)view.findViewById(R.id.editText_my_profile_surname);
-        EditText age = (EditText)view.findViewById(R.id.editText_my_profile_age);
-        EditText gender = (EditText)view.findViewById(R.id.editText_my_profile_gender);
+        final EditText firstName = (EditText)view.findViewById(R.id.editText_my_profile_name);
+        final EditText lastName = (EditText)view.findViewById(R.id.editText_my_profile_surname);
+        final EditText age = (EditText)view.findViewById(R.id.editText_my_profile_age);
+        final EditText gender = (EditText)view.findViewById(R.id.editText_my_profile_gender);
 
         firstName.setText(myUser.getFirstName());
         lastName.setText(myUser.getLastName());
@@ -68,17 +66,23 @@ public class ProfileGeneralInfoFragment extends JustAFragment {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileMainViewFragment(tab));
+                //btnClick(new ProfileMainViewFragment(tab));
+                myUser.setFirstName(firstName.getText().toString());
+                myUser.setLastName(lastName.getText().toString());
+                myUser.setAge(Integer.parseInt(age.getText().toString()));
+                myUser.setGender(gender.getText().toString());
+
+                datasource.updateUser(myUser);
             }
         });
     }
 
     private MyCareerUser createAppUser(){
         MyCareerUser user = new MyCareerUser();
-        user.setFirstName("Bart");
-        user.setLastName("Simpson");
-        user.setAge(10);
-        user.setGender("male");
+        user.setFirstName("first name");
+        user.setLastName("last name");
+        user.setAge(0);
+        user.setGender("gender");
         user.setTrainings("");
         user.setEducation("");
         user.setInterests("");

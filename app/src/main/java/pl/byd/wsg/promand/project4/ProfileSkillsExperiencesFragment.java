@@ -30,6 +30,7 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
         super(tab);
     }
 
+    private ExperienceClassDao datasource;
     MyCustomAdapter dataAdapter = null;
 
     @Override
@@ -41,6 +42,7 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+
         //Buttons
         Button backBtn = (Button) view.findViewById(R.id.btn_back_experience);
         Button cancelBtn = (Button)view.findViewById(R.id.btn_experience_cancel);
@@ -69,34 +71,26 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
 
     //Example from http://developerandro.blogspot.com/2013/09/listview-with-checkbox-android-example.html
     private void displayListView(View view) {
+        datasource = new ExperienceClassDao(getActivity());
+        datasource.open();
+
+        if(datasource.getAllExperiences().isEmpty()){
+            ArrayList<String> experiencesList = new ArrayList<String>();
+            experiencesList.add("programming");
+            experiencesList.add("sleeping");
+            experiencesList.add("training");
+            experiencesList.add("singing");
+            experiencesList.add("fishing");
+            experiencesList.add("testing");
+            experiencesList.add("coding");
+            experiencesList.add("building");
+            experiencesList.add("running");
+            experiencesList.add("walking");
+            datasource.insertExperiencesList(experiencesList);
+        }
+
         // Array list of experiences
-        ArrayList<ExperienceClass> experienceList = new ArrayList<ExperienceClass>();
-
-        //Fill the list
-        ExperienceClass _states = new ExperienceClass(1, "programming", false);
-        experienceList.add(_states);
-        _states = new ExperienceClass(2, "Ekonomy", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(3, "Electronics/Telecommunications", false);
-        experienceList.add(_states);
-        _states = new ExperienceClass(4, "Production", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(5, "Arts/Culture", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(6, "Health and saftey", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(7, "Tourism", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(8, "Management", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(9, "Agroculture", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(10, "Other", true);
-        experienceList.add(_states);
-        _states = new ExperienceClass(11, "MarkAll", true);
-        experienceList.add(_states);
-
-
+        ArrayList<ExperienceClass> experienceList = datasource.getAllExperiences();
 
         // create an ArrayAdaptar from the String Array
         dataAdapter = new MyCustomAdapter(this.getActivity(), R.layout.profile_skills_experience_item, experienceList);
@@ -177,9 +171,11 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
                 for (int i = 0; i < experienceList.size(); i++) {
                     ExperienceClass experience = experienceList.get(i);
                     if (experience.isSelected()) {
+                        experience.isSelected();
                         responseText.append("\n" + experience.getName());
                     }
                 }
+                datasource.updateAllExperiences(experienceList);
                 Toast.makeText(getActivity(), responseText,
                         Toast.LENGTH_LONG).show();
             }

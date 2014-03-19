@@ -48,11 +48,12 @@
         android:layout_marginBottom="10dp"
         android:textSize="25sp"/>
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_strong_sides_area"
         android:layout_below="@+id/textView_strong_sides"
+        android:inputType="textMultiLine"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_strong_sides_cancel"

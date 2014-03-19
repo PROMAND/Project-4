@@ -15,23 +15,30 @@ import android.widget.TextView;
 /**
  * Created by Marika on 17.03.14.
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ProfilePersonalIntrestsFragment extends JustAFragment {
 
     public ProfilePersonalIntrestsFragment(ActionBar.Tab tab)
     {
         super(tab);
     }
+    private MyCareerUserDao datasource;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.profile_personal_interests, container, false);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+
+        datasource = new MyCareerUserDao(getActivity());
+        datasource.open();
+
+        final MyCareerUser myUser = datasource.getUser();
+
+        final TextView textView = (TextView)view.findViewById(R.id.textView_interests_area);
         Button backBtn = (Button)view.findViewById(R.id.btn_back_interests);
         Button okBtn = (Button)view.findViewById(R.id.btn_interests_ok);
         Button cancelBtn = (Button)view.findViewById(R.id.btn_interests_cancel);
@@ -46,7 +53,9 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalMainViewFragment(tab));
+                //btnClick(new ProfilePersonalMainViewFragment(tab));
+                myUser.setInterests(textView.getText().toString());
+                datasource.updateUser(myUser);
             }
         });
 
@@ -57,8 +66,12 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
             }
         });
 
-        TextView textView = (TextView)view.findViewById(R.id.textView_interests_area);
-        textView.setHint("Here I will describe my personal intrests");
+        if(!myUser.getInterests().equalsIgnoreCase("")){
+            textView.setText(myUser.getInterests());
+        }
+        else {
+            textView.setHint("Here I will describe my personal intrests");
+        }
 
     }
 

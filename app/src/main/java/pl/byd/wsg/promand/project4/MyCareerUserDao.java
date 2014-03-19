@@ -43,24 +43,12 @@ public class MyCareerUserDao {
 
         public int updateUser(MyCareerUser myUser){
 
-            // 1. get reference to writable DB
+            // get reference to writable DB
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            //2. values
-            ContentValues values = new ContentValues();
-
-            values.put(MySQLiteHelper.COLUMN_FIRSTNAME, myUser.getFirstName());
-            values.put(MySQLiteHelper.COLUMN_LASTNAME, myUser.getLastName());
-            values.put(MySQLiteHelper.COLUMN_AGE, myUser.getAge());
-            values.put(MySQLiteHelper.COLUMN_GENDER, myUser.getGender());
-            values.put(MySQLiteHelper.COLUMN_TRAININGS, myUser.getTrainings());
-            values.put(MySQLiteHelper.COLUMN_EDUCATION, myUser.getEducation());
-            values.put(MySQLiteHelper.COLUMN_INTERESTS, myUser.getInterests());
-            values.put(MySQLiteHelper.COLUMN_STRONGS, myUser.getStrongSides());
-
-            // 3. updating row
+            // updating row
             int i = db.update(MySQLiteHelper.TABLE_USERS, //table
-                    values, // column/value
+                    makeUserRow(myUser), // column/value
                     MySQLiteHelper.COLUMN_ID + " = ?", // selections
                     new String[]{String.valueOf(myUser.getId())});
 
@@ -68,33 +56,21 @@ public class MyCareerUserDao {
         }
 
         public void createUser(MyCareerUser myUser) {
-            // 1. get reference to writable DB
+            // get reference to writable DB
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            // 2. values
-            ContentValues values = new ContentValues();
-
-            values.put(MySQLiteHelper.COLUMN_FIRSTNAME, myUser.getFirstName());
-            values.put(MySQLiteHelper.COLUMN_LASTNAME, myUser.getLastName());
-            values.put(MySQLiteHelper.COLUMN_AGE, myUser.getAge());
-            values.put(MySQLiteHelper.COLUMN_GENDER, myUser.getGender());
-            values.put(MySQLiteHelper.COLUMN_TRAININGS, myUser.getTrainings());
-            values.put(MySQLiteHelper.COLUMN_EDUCATION, myUser.getEducation());
-            values.put(MySQLiteHelper.COLUMN_INTERESTS, myUser.getInterests());
-            values.put(MySQLiteHelper.COLUMN_STRONGS, myUser.getStrongSides());
-
-            // 3. insert
+            // insert
             db.insert(MySQLiteHelper.TABLE_USERS, // table
                     null, //nullColumnHack
-                    values); // key/value -> keys = column names/ values = column values
+                    makeUserRow(myUser)); // key/value -> keys = column names/ values = column values
 
         }
 
         public void deleteUser(MyCareerUser user) {
-            // 1. get reference to writable DB
+            // get reference to writable DB
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            // 2. delete
+            // delete
             db.delete(MySQLiteHelper.TABLE_USERS, //table name
                     MySQLiteHelper.COLUMN_ID+" = ?",  // selections
                     new String[] { String.valueOf(user.getId()) }); //selections args
@@ -164,4 +140,20 @@ public class MyCareerUserDao {
 
             return user;
         }
+
+    // helper method to pack a product for the convenience methods
+    private ContentValues makeUserRow(MyCareerUser myUser) {
+        ContentValues values = new ContentValues();
+
+        values.put(MySQLiteHelper.COLUMN_FIRSTNAME, myUser.getFirstName());
+        values.put(MySQLiteHelper.COLUMN_LASTNAME, myUser.getLastName());
+        values.put(MySQLiteHelper.COLUMN_AGE, myUser.getAge());
+        values.put(MySQLiteHelper.COLUMN_GENDER, myUser.getGender());
+        values.put(MySQLiteHelper.COLUMN_TRAININGS, myUser.getTrainings());
+        values.put(MySQLiteHelper.COLUMN_EDUCATION, myUser.getEducation());
+        values.put(MySQLiteHelper.COLUMN_INTERESTS, myUser.getInterests());
+        values.put(MySQLiteHelper.COLUMN_STRONGS, myUser.getStrongSides());
+
+        return values;
+    }
 }
