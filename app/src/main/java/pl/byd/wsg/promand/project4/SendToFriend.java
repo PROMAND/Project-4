@@ -46,7 +46,7 @@ public class SendToFriend extends JustAFragment implements AdapterView.OnClickLi
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        EditText to = (EditText)view.findViewById(R.id.editTextTo);
+       final EditText toWhom = (EditText)view.findViewById(R.id.editTextTo);
         EditText subject = (EditText)view.findViewById(R.id.editTextSub);
          EditText message = (EditText)view.findViewById(R.id.editTextMessage);
         message.setText(artic);
@@ -77,7 +77,7 @@ public class SendToFriend extends JustAFragment implements AdapterView.OnClickLi
 
 
 
-                String to = "mesfin2006@gmail.com";
+                String to = toWhom.getText().toString();
                 String subj = subject.getText().toString();
                 String mess = message.getText().toString();
 

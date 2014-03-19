@@ -4,7 +4,7 @@ package pl.byd.wsg.promand.project4;
  * Created by Marika on 18.03.14.
  */
 public class MyCareerUser {
-    private long id;
+    private static long id;
     private String firstName;
     private String lastName;
     private Integer age;
