@@ -61,6 +61,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:editable="true"
-        android:layout_above="@+id/btn_trainings_cancel" />
+        android:layout_above="@+id/btn_trainings_cancel"
+        android:gravity="top"/>
 
 </RelativeLayout>

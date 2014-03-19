@@ -61,7 +61,7 @@
         android:background="#fdffe3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/textView_education" />
-
+        android:layout_below="@+id/textView_education"
+        android:gravity="top"/>
 
 </RelativeLayout>

@@ -88,7 +88,15 @@ public class MyCareerUser {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName;
+
+        return "CV \n\n" + "First name: " + getFirstName()
+                + "\n\n Last Name: " + getLastName()
+                + "\n\n Age: " + getAge().toString()
+                + "\n\n Gender: " + getGender()
+                + "\n\n Education: " + getEducation()
+                + "\n\n Trainings: " + getTrainings()
+                + "\n\n Interests: " + getInterests()
+                + "\n\n Strong sides: " + getStrongSides();
     }
 
 }
