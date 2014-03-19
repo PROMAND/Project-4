@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
         //create the two fragments we want to use for display content
         Fragment ProfileMainViewFragment = new ProfileMainViewFragment(ProfileTab);
-        Fragment JobOfficeMainViewFragment = new JobOfficeMainViewFragment();
+        Fragment JobOfficeMainViewFragment = new JobOfficeMainViewFragment(JobOfficeTab);
         Fragment ArticlesMainViewFragment = new ArticlesMainViewFragment(ArticlesTab);
         Fragment EventsMainViewFragment = new EventsMainViewFragment();
 

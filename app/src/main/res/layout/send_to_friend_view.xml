@@ -17,16 +17,54 @@
         android:textSize="25sp"
         android:layout_marginLeft="10dp" />
 
+    <TextView
+        android:id="@+id/TextTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO   :"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editTextTo"
+        android:layout_alignStart="@+id/editTextTo" />
+
+    <EditText
+        android:id="@+id/editTextTo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/TextSubject"
+        android:layout_alignStart="@+id/TextSubject" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject  :"
+        android:id="@+id/TextSubject"
+        android:layout_alignTop="@+id/editTextSub"
+        android:layout_alignRight="@+id/TextViewMessge"
+        android:layout_alignEnd="@+id/TextViewMessge" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextSub"
+        android:layout_above="@+id/TextViewMessge"
+        android:layout_toRightOf="@+id/TextSubject" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextViewMessge"
+        android:text="Message : "
+        android:layout_alignBottom="@+id/btn_back_send_to_friend"
+        android:layout_toRightOf="@+id/btn_back_send_to_friend" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtView_send_to_friend"
+        android:id="@+id/editTextMessage"
         android:layout_below="@+id/btn_back_send_to_friend"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:gravity="top"
         android:layout_above="@+id/btn_attach_send_to_friend"
         android:background="#fffee8" />
 
@@ -46,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_send"
-        android:id="@+id/btn_send_send_to_friend"
+        android:id="@+id/emailSend"
         android:layout_alignTop="@+id/btn_attach_send_to_friend"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

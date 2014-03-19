@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by Marika on 17.03.14.
@@ -38,6 +39,10 @@ public class ProfileMainViewFragment extends JustAFragment {
         Button cvBtn = (Button) view.findViewById(R.id.btn_my_profile_cv);
         Button skillsBtn = (Button) view.findViewById(R.id.btn_my_profile_skills);
         Button personalBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
+
+        //for send to your freind functions
+
+
 
         generalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
