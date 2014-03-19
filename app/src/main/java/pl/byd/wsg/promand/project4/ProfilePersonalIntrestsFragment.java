@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Marika on 17.03.14.
@@ -54,9 +55,11 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //btnClick(new ProfilePersonalMainViewFragment(tab));
                 myUser.setInterests(textView.getText().toString());
                 datasource.updateUser(myUser);
+                Toast.makeText(getActivity(), "Profile updated!",
+                        Toast.LENGTH_SHORT).show();
+                btnClick(new ProfilePersonalMainViewFragment(tab));
             }
         });
 

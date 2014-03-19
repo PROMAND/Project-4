@@ -10,11 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Marika on 17.03.14.
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ProfilePreviewCvFragment extends Fragment {
 
     public ProfilePreviewCvFragment(ActionBar.Tab tab)
@@ -22,6 +22,7 @@ public class ProfilePreviewCvFragment extends Fragment {
         this.tab = tab;
     }
     ActionBar.Tab tab;
+    private MyCareerUserDao datasource;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,11 +30,18 @@ public class ProfilePreviewCvFragment extends Fragment {
         return inflater.inflate(R.layout.profile_cv_preview, container, false);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
         Button backBtn = (Button) view.findViewById(R.id.btn_back_profile_cv_preview);
+
+        datasource = new MyCareerUserDao(getActivity());
+        datasource.open();
+
+        MyCareerUser myUser = datasource.getUser();
+
+        TextView textView = (TextView)view.findViewById(R.id.textView_cv_preview);
+        textView.setText(myUser.toString());
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
