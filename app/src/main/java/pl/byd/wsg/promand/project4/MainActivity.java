@@ -49,6 +49,5 @@ public class MainActivity extends Activity {
         actionbar.addTab(ArticlesTab);
         actionbar.addTab(EventsTab);
 
-
     }
 }
