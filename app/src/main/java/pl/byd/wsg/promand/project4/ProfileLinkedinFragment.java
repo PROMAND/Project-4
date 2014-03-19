@@ -94,7 +94,21 @@ public class ProfileLinkedinFragment extends JustAFragment {
                     LinkedinDialog.factory.createLinkedInApiClient(accessToken);
                     client = factory.createLinkedInApiClient(accessToken);
                     Person test = client.getProfileForCurrentUser(EnumSet.allOf(ProfileField.class));
-                    test.getEducations();
+                    MyCareerUser dataInput = new MyCareerUser();
+
+                    test.getLastName().toString();
+                    test.getFirstName().toString();
+                    test.getEducations().toString();
+                    test.getInterests().toString();
+                    test.getDateOfBirth().toString();
+                    test.getCertifications().toString();
+                    test.getIndustry().toString();
+                    test.getLanguages().toString();
+                    test.getMainAddress().toString();
+                    test.getSkills().toString();
+                    test.getSpecialties().toString();
+
+
 
                 }
                 catch (Exception e)
