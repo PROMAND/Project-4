@@ -75,14 +75,28 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
         //Fill the list
         ExperienceClass _states = new ExperienceClass(1, "programming", false);
         experienceList.add(_states);
-        _states = new ExperienceClass(2, "skiing", true);
+        _states = new ExperienceClass(2, "Ekonomy", true);
         experienceList.add(_states);
-        _states = new ExperienceClass(3, "cooking", false);
+        _states = new ExperienceClass(3, "Electronics/Telecommunications", false);
         experienceList.add(_states);
-        _states = new ExperienceClass(4, "fishing", true);
+        _states = new ExperienceClass(4, "Production", true);
         experienceList.add(_states);
-        _states = new ExperienceClass(5, "sleeping", true);
+        _states = new ExperienceClass(5, "Arts/Culture", true);
         experienceList.add(_states);
+        _states = new ExperienceClass(6, "Health and saftey", true);
+        experienceList.add(_states);
+        _states = new ExperienceClass(7, "Tourism", true);
+        experienceList.add(_states);
+        _states = new ExperienceClass(8, "Management", true);
+        experienceList.add(_states);
+        _states = new ExperienceClass(9, "Agroculture", true);
+        experienceList.add(_states);
+        _states = new ExperienceClass(10, "Other", true);
+        experienceList.add(_states);
+        _states = new ExperienceClass(11, "MarkAll", true);
+        experienceList.add(_states);
+
+
 
         // create an ArrayAdaptar from the String Array
         dataAdapter = new MyCustomAdapter(this.getActivity(), R.layout.profile_skills_experience_item, experienceList);
