@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,6 +73,7 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
         else {
             textView.setHint("Here I will describe my personal intrests");
         }
+
 
     }
 

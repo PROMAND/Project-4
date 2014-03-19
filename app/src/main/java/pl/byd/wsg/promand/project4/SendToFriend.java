@@ -27,10 +27,10 @@ public class SendToFriend extends JustAFragment implements AdapterView.OnClickLi
     private View root;
 
 
-    //String artic;
+    String artic;
     public SendToFriend(ActionBar.Tab tab, String article, SeparateArticle prieviousArticle) {
         super(tab);
-        //this.artic=article;
+        this.artic=article;
         this.prieviousArticle = prieviousArticle;
     }
 
@@ -49,7 +49,7 @@ public class SendToFriend extends JustAFragment implements AdapterView.OnClickLi
         EditText to = (EditText)view.findViewById(R.id.editTextTo);
         EditText subject = (EditText)view.findViewById(R.id.editTextSub);
          EditText message = (EditText)view.findViewById(R.id.editTextMessage);
-
+        message.setText(artic);
         Button back = (Button)view.findViewById(R.id.btn_back_send_to_friend);
         Button attachment = (Button)view.findViewById(R.id.btn_attach_send_to_friend);
         Button emailSend  = (Button)view.findViewById(R.id.emailSend);
