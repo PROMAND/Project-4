@@ -79,7 +79,7 @@ public class LinkedinConnection
                         dataFromLinkedin.setLastName(test.getLastName());
                     }catch (Exception e){}
                     try{
-                        dataFromLinkedin.setSkills(test.getSkills().toString());
+                        dataFromLinkedin.setSkills(test.getSkills());
                     }catch (Exception e){}
                     try{
                         dataFromLinkedin.setSpecialities(test.getSpecialties());
@@ -88,19 +88,19 @@ public class LinkedinConnection
                         dataFromLinkedin.setInterests(test.getInterests());
                     }catch (Exception e){}
                     try{
-                        dataFromLinkedin.setEducation(test.getEducations().toString());
+                        dataFromLinkedin.setEducation(test.getEducations());
                     }catch (Exception e){}
                     try{
-                        dataFromLinkedin.setDateOfBirth(test.getDateOfBirth().toString());
+                        dataFromLinkedin.setDateOfBirth(test.getDateOfBirth());
                     }catch (Exception e){}
                     try{
-                        dataFromLinkedin.setCertifications(test.getCertifications().toString());
+                        dataFromLinkedin.setCertifications(test.getCertifications());
                     }catch (Exception e){}
                     try{
                         dataFromLinkedin.setIndusty(test.getIndustry());
                     }catch (Exception e){}
                     try{
-                        dataFromLinkedin.setLanguages(test.getLanguages().toString());
+                        dataFromLinkedin.setLanguages(test.getLanguages());
                     }catch (Exception e){}
                     try{
                         dataFromLinkedin.setMainAddress(test.getMainAddress());

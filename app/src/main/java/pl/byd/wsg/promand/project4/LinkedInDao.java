@@ -40,25 +40,32 @@ public class LinkedInDao {
         dbHelper.close();
     }
 
-    public void updateLinkedin(DataFromLinkedin linkedin){
+    public void updateLinkedin(DataFromLinkedin linkedin) {
 
-        if (firsload)
-        {
-            firsload = false;
-            createLinkedin(linkedin);
-        }
-        else {
-            // get reference to writable DB
+
+
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            // updating row
-            int i = db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
-                    makeLinkedinRow(linkedin), // column/value
-                    MySQLiteHelper.COLUMN_LID + " = ?", // selections
-                    new String[]{String.valueOf(linkedin.getId())});
-        }
-    }
+            Cursor cursor = db.rawQuery(MySQLiteHelper.SELECT_COUNT, null);
+            if (cursor != null){
+                cursor.moveToFirst();
 
+
+               if (cursor.getInt(0) > 0)
+               {
+                   // updating row
+                   int i = db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
+                           makeLinkedinRow(linkedin), // column/value
+                           MySQLiteHelper.COLUMN_LID + " = ?", // selections
+                           new String[]{String.valueOf(1)});
+               }
+                else
+               {
+                   createLinkedin(linkedin);
+               }
+        }
+
+    }
     public void createLinkedin(DataFromLinkedin linkedin) {
         // get reference to writable DB
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -81,36 +88,36 @@ public class LinkedInDao {
 
     }
 
-    public DataFromLinkedin getLinkedin() {
-        // 1. get reference to readable DB
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-        // 2. build query
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_LINKEDIN, allColumns, null, null, null, null, null);
-
-        // 3. if we got results get the first one
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        DataFromLinkedin linkedin = new DataFromLinkedin();
-        linkedin.setId(cursor.getLong(0));
-        linkedin.setFirstName(cursor.getString(1));
-        linkedin.setLastName(cursor.getString(2));
-        linkedin.setEducation(cursor.getString(3));
-        linkedin.setInterests(cursor.getString(4));
-        linkedin.setDateOfBirth(cursor.getString(5));
-        linkedin.setCertifications(cursor.getString(6));
-        linkedin.setIndusty(cursor.getString(7));
-        linkedin.setLanguages(cursor.getString(8));
-        linkedin.setMainAddress(cursor.getString(9));
-        linkedin.setSkills(cursor.getString(10));
-        linkedin.setSpecialities(cursor.getString(11));
-
-        // make sure to close the cursor
-        cursor.close();
-
-        return linkedin;
-    }
+//    public DataFromLinkedin getLinkedin() {
+//        // 1. get reference to readable DB
+//        SQLiteDatabase db = dbHelper.getReadableDatabase();
+//
+//        // 2. build query
+//        Cursor cursor = database.query(MySQLiteHelper.TABLE_LINKEDIN, allColumns, null, null, null, null, null);
+//        cursor.moveToFirst();
+//        // 3. if we got results get the first one
+//        if (cursor != null)
+//            cursor.moveToFirst();
+//
+//        DataFromLinkedin linkedin = new DataFromLinkedin();
+//        linkedin.setId(cursor.getLong(0));
+//        linkedin.setFirstName(cursor.getString(1));
+//        linkedin.setLastName(cursor.getString(2));
+//        linkedin.setEducation(cursor.getString(3));
+//        linkedin.setInterests(cursor.getString(4));
+//        linkedin.setDateOfBirth(cursor.getString(5));
+//        linkedin.setCertifications(cursor.getString(6));
+//        linkedin.setIndusty(cursor.getString(7));
+//        linkedin.setLanguages(cursor.getString(8));
+//        linkedin.setMainAddress(cursor.getString(9));
+//        linkedin.setSkills(cursor.getString(10));
+//        linkedin.setSpecialities(cursor.getString(11));
+//
+//        // make sure to close the cursor
+//        cursor.close();
+//
+//        return linkedin;
+//    }
 
     // helper method to pack a product for the convenience methods
     private ContentValues makeLinkedinRow(DataFromLinkedin linkedin) {

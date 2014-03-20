@@ -1,10 +1,19 @@
 package pl.byd.wsg.promand.project4;
 
+import com.google.code.linkedinapi.schema.Certifications;
+import com.google.code.linkedinapi.schema.DateOfBirth;
+import com.google.code.linkedinapi.schema.Education;
+import com.google.code.linkedinapi.schema.Educations;
+import com.google.code.linkedinapi.schema.Languages;
+import com.google.code.linkedinapi.schema.Skills;
+
+import javax.security.cert.Certificate;
+
 /**
  * Created by Paladin on 3/19/14.
  */
 public class DataFromLinkedin {
-    private static long id;
+    private static final long id = 0;
     private String firstName;
     private String lastName;
     private String education;
@@ -18,26 +27,13 @@ public class DataFromLinkedin {
     private String specialities; // mb should be list or we can use general expressions
     private String nullResult = "empty";
 
-    public String getNullResult()
-    {
-        return nullResult;
-    }
-
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
-        if (firstName != null) {
-            return firstName;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(firstName);
     }
 
     public void setFirstName(String firstName) {
@@ -45,12 +41,7 @@ public class DataFromLinkedin {
     }
 
     public String getLastName() {
-        if (lastName != null) {
-            return lastName;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(lastName);
     }
 
     public void setLastName(String lastName) {
@@ -58,25 +49,15 @@ public class DataFromLinkedin {
     }
 
     public String getEducation() {
-        if (education != null) {
-            return education;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(education);
     }
 
-    public void setEducation(String education) {
-            this.education = education;
+    public void setEducation(Educations education) {
+        this.education = education.getEducationList().get(0).getSchoolName()+" "+education.getEducationList().get(0).getFieldOfStudy();
     }
 
     public String getInterests() {
-        if (interests != null) {
-            return interests;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(interests);
     }
 
     public void setInterests(String interests) {
@@ -84,38 +65,23 @@ public class DataFromLinkedin {
     }
 
     public String getDateOfBirth() {
-        if (dateOfBirth != null) {
-            return dateOfBirth;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(dateOfBirth);
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDateOfBirth(DateOfBirth dateOfBirth) {
+        this.dateOfBirth = dateOfBirth.getDay().toString()+" "+dateOfBirth.getMonth().toString()+" "+dateOfBirth.getYear().toString();
     }
 
     public String getCertifications() {
-        if (certifications != null) {
-            return certifications;
-        }else
-        {
-            return nullResult;
-        }
+        return isNull(certifications);
     }
 
-    public void setCertifications(String certifications) {
-        this.certifications = certifications;
+    public void setCertifications(Certifications certifications) {
+        this.certifications = certifications.getCertificationList().get(0).getName();
     }
 
     public String getIndusty() {
-        if (industy != null) {
-            return industy;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(industy);
     }
 
     public void setIndusty(String industy) {
@@ -123,25 +89,15 @@ public class DataFromLinkedin {
     }
 
     public String getLanguages() {
-        if (languages != null) {
-            return languages;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(languages);
     }
 
-    public void setLanguages(String languages) {
-        this.languages = languages;
+    public void setLanguages(Languages languages) {
+        this.languages = languages.getLanguageList().get(0).getLanguage().getName();
     }
 
     public String getMainAddress() {
-        if (mainAddress != null) {
-            return mainAddress;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(mainAddress);
     }
 
     public void setMainAddress(String mainAddress) {
@@ -149,29 +105,30 @@ public class DataFromLinkedin {
     }
 
     public String getSkills() {
-        if (skills != null) {
-            return skills;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(skills);
     }
 
-    public void setSkills(String skills) {
-        this.skills = skills;
+    public void setSkills(Skills skills) {
+        this.skills = skills.getSkillList().get(0).getSkill().getName();
     }
 
     public String getSpecialities() {
-        if (specialities != null) {
-            return specialities;
-        }else
-        {
-            return nullResult;
-        }
+            return isNull(specialities);
     }
 
     public void setSpecialities(String specialities) {
         this.specialities = specialities;
+    }
+    // returns some value if database doesnt provide data
+    private String isNull(String arg)
+    {
+        if (arg != null)
+        {
+            return arg;
+        }
+        else {
+            return nullResult;
+        }
     }
 
 }

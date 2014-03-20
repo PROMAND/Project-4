@@ -67,6 +67,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     + " text not null, " + COLUMN_SELECTED
                     + " text not null);";
 
+    public static final String SELECT_COUNT =
+            " select count(*) from " + TABLE_LINKEDIN +";";
+
     private static final String CREATE_TABLE_LINKEDIN =
             " create table " + TABLE_LINKEDIN +
                     " (" + COLUMN_LID
