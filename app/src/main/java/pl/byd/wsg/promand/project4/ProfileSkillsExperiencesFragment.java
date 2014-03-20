@@ -62,7 +62,8 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
             }
         });
 
-        //OK button method
+        //OK button method this is working greate
+        //checkButtonClick(view);
         checkButtonClick(view);
 
         // Generate data for experiences list
