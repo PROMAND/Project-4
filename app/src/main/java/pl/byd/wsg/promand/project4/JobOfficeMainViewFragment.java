@@ -6,12 +6,15 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -38,6 +41,15 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
     public void onViewCreated(View view, Bundle savedInstanceState){
 
         super.onViewCreated(view, savedInstanceState);
+
+        EditText search = (EditText) view.findViewById(R.id.editText_job_office_search);
+        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                v.setText("different");
+                return false;
+            }
+        });
          listView = (ListView)view.findViewById(R.id.listView_job_office);
 
         //Sample data for articles list

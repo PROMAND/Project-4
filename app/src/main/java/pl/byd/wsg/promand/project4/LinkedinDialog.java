@@ -47,13 +47,13 @@ public class LinkedinDialog extends Dialog
     private void setWebView()
     {
         LinkedinDialog.oAuthService = LinkedInOAuthServiceFactory.getInstance()
-                .createLinkedInOAuthService(Config.LINKEDIN_CONSUMER_KEY,
-                        Config.LINKEDIN_CONSUMER_SECRET,Config.scopeParams);
+                .createLinkedInOAuthService(LinkedinConnection.LINKEDIN_CONSUMER_KEY,
+                        LinkedinConnection.LINKEDIN_CONSUMER_SECRET,LinkedinConnection.scopeParams);
         LinkedinDialog.factory = LinkedInApiClientFactory.newInstance(
-                Config.LINKEDIN_CONSUMER_KEY, Config.LINKEDIN_CONSUMER_SECRET);
+                LinkedinConnection.LINKEDIN_CONSUMER_KEY, LinkedinConnection.LINKEDIN_CONSUMER_SECRET);
 
         LinkedinDialog.liToken = LinkedinDialog.oAuthService
-                .getOAuthRequestToken(Config.OAUTH_CALLBACK_URL);
+                .getOAuthRequestToken(LinkedinConnection.OAUTH_CALLBACK_URL);
 
         WebView mWebView = (WebView) findViewById(R.id.login_window);
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -79,7 +79,7 @@ public class LinkedinDialog extends Dialog
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            if (url.contains(Config.OAUTH_CALLBACK_URL)) {
+            if (url.contains(LinkedinConnection.OAUTH_CALLBACK_URL)) {
                 Uri uri = Uri.parse(url);
                 String verifier = uri.getQueryParameter("oauth_verifier");
                 for (OnVerifyListener d : listeners) {

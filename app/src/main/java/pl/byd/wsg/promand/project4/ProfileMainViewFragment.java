@@ -54,7 +54,8 @@ public class ProfileMainViewFragment extends JustAFragment {
         linkedInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileLinkedinFragment(tab));
+
+                new LinkedinConnection(getActivity());
             }
         });
 
