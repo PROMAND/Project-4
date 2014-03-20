@@ -36,25 +36,35 @@ public class ArticlesMainViewFragment extends JustAFragment implements ListView.
         return view;
     }
 
+
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        ListView listView = (ListView) view.findViewById(R.id.list_articles);
+        listView = (ListView) view.findViewById(R.id.list_articles);
 
         //Sample data for articles list
-        ArrayList<String> list = new ArrayList<String>();
-        list.add(getString(R.string.text));
-        list.add("How to prepare for interview");
-        list.add("How to dress");
-        list.add("How to apply for a job");
+        listOfTitles = new ArrayList<String>();
+        listOfArticles = new ArrayList<String>();
 
-        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
+        JsonParserArticles fetchArticles =  new JsonParserArticles(this);
+
+
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listOfTitles));
         listView.setOnItemClickListener(this);
 
 
     }
+    ArrayList<String> listOfTitles;
+    ArrayList<String> listOfArticles;
+    ListView listView ;
+    public void updateList(String title,String article)
+    {
+        listOfArticles.add(article);
+        listOfTitles.add(title);
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listOfTitles));
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        super.btnClick(new SeparateArticle(parent.getItemAtPosition(position).toString(), super.tab));
+        super.btnClick(new SeparateArticle(listOfArticles.get(position), super.tab));
     }
 }

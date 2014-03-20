@@ -26,7 +26,7 @@ public class MyCareerUserDao {
         MySQLiteHelper.COLUMN_EDUCATION,
         MySQLiteHelper.COLUMN_INTERESTS,
         MySQLiteHelper.COLUMN_STRONGS
-    };
+};
 
         //Constructor
         public MyCareerUserDao (Context context) {

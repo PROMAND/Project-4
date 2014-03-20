@@ -38,18 +38,27 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
     public void onViewCreated(View view, Bundle savedInstanceState){
 
         super.onViewCreated(view, savedInstanceState);
-        ListView listView = (ListView)view.findViewById(R.id.listView_job_office);
+         listView = (ListView)view.findViewById(R.id.listView_job_office);
 
         //Sample data for articles list
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Administrator needed!");
-        list.add("Job for prgogrammer");
-        list.add("Looking for IT specialist");
-        list.add("IT management offer");
-
-        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
+         listOfTitles = new ArrayList<String>();
+        listOfArticles = new ArrayList<String>();
+        listOfEmail = new ArrayList<String>();
+        JsonParserJobs jsonParserJobs = new JsonParserJobs(this);
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listOfTitles));
         listView.setOnItemClickListener(this);
 
+    }
+    ArrayList<String> listOfTitles;
+    ArrayList<String> listOfArticles;
+    ArrayList<String> listOfEmail;
+    ListView listView ;
+    public void updateList(String title,String article,String email)
+    {
+        listOfEmail.add(email);
+        listOfArticles.add(article);
+        listOfTitles.add(title);
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listOfTitles));
     }
 
 
@@ -57,7 +66,7 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-        JobOfficeDetails newDetail = new JobOfficeDetails(parent.getItemAtPosition(position).toString(),tab);
+        JobOfficeDetails newDetail = new JobOfficeDetails(listOfArticles.get(position),tab);
         btnClick(newDetail);
 
     }

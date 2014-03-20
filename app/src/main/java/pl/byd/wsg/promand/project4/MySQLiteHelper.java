@@ -13,7 +13,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     //Tables names
     public static final String TABLE_USERS = "User";
     public static final String TABLE_EXPERIENCES = "Experience";
-    public static final String TABLE_LINKEDIN = "Linkedin";
 
     //Table columns
     public static final String COLUMN_ID = "_id";
@@ -29,19 +28,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CODE = "code";
     public static final String COLUMN_EXPERIENCE = "name";
     public static final String COLUMN_SELECTED = "selected";
-
-    public static final String COLUMN_LID = "id";
-    public static final String COLUMN_LFIRSTNAME = "firstname";
-    public static final String COLUMN_LLASTNAME = "lastname";
-    public static final String COLUMN_LEDUCATION = "education";
-    public static final String COLUMN_LINTERESTS = "interests";
-    public static final String COLUMN_LBIRTH = "dateOfBirth";
-    public static final String COLUMN_LCERTIFICATIONS = "certifications";
-    public static final String COLUMN_LINDUSTRY = "industry";
-    public static final String COLUMN_LLANGUAGES = "languages";
-    public static final String COLUMN_LADDRESS = "mainAddress";
-    public static final String COLUMN_LSKILLS = "skills";
-    public static final String COLUMN_LSPECIALITIES = "specialities";
 
     //Database name and version
     private static final String DATABASE_NAME = "MyCareer.db";
@@ -67,21 +53,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     + " text not null, " + COLUMN_SELECTED
                     + " text not null);";
 
-    private static final String CREATE_TABLE_LINKEDIN =
-            " create table " + TABLE_LINKEDIN +
-                    " (" + COLUMN_LID
-                    + " integer primary key autoincrement," + COLUMN_LFIRSTNAME
-                    + " text, " + COLUMN_LLASTNAME
-                    + " text, " + COLUMN_LEDUCATION
-                    + " text, " + COLUMN_LINTERESTS
-                    + " text, " + COLUMN_LBIRTH
-                    + " text, " + COLUMN_LCERTIFICATIONS
-                    + " text, " + COLUMN_LINDUSTRY
-                    + " text, " + COLUMN_LLANGUAGES
-                    + " text, " + COLUMN_LADDRESS
-                    + " text, " + COLUMN_LSKILLS
-                    + " text, " + COLUMN_LSPECIALITIES
-                    + " text);";
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -91,7 +62,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
         database.execSQL(CREATE_TABLE_EXPERIENCE);
-        database.execSQL(CREATE_TABLE_LINKEDIN);
     }
 
     @Override
@@ -102,7 +72,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         );
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXPERIENCES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LINKEDIN);
         onCreate(db);
     }
 }

@@ -23,6 +23,7 @@ public class ProfileMainViewFragment extends JustAFragment {
         super(tab);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -33,7 +34,6 @@ public class ProfileMainViewFragment extends JustAFragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-
         Button generalInfoBtn = (Button) view.findViewById(R.id.btn_my_profile_general);
         Button linkedInBtn = (Button) view.findViewById(R.id.btn_my_profile_linkedIn);
         Button cvBtn = (Button) view.findViewById(R.id.btn_my_profile_cv);
@@ -41,6 +41,8 @@ public class ProfileMainViewFragment extends JustAFragment {
         Button personalBtn = (Button) view.findViewById(R.id.btn_my_profile_personal);
 
         //for send to your freind functions
+
+
 
         generalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
