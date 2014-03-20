@@ -69,21 +69,42 @@ public class LinkedinConnection
                     LinkedinDialog.factory.createLinkedInApiClient(accessToken);
                     client = factory.createLinkedInApiClient(accessToken);
                     Person test = client.getProfileForCurrentUser(EnumSet.allOf(ProfileField.class));
-//                    MyCareerUser dataInput = new MyCareerUser();
 
                     DataFromLinkedin dataFromLinkedin = new DataFromLinkedin();
 
-                    dataFromLinkedin.setFirstName(test.getFirstName());
-                    dataFromLinkedin.setLastName(test.getLastName());
-                    dataFromLinkedin.setInterests(test.getInterests());
-                    dataFromLinkedin.setEducation(test.getEducations().toString());
-                    dataFromLinkedin.setDateOfBirth(test.getDateOfBirth().toString());
-                    dataFromLinkedin.setCertifications(test.getCertifications().toString());
-                    dataFromLinkedin.setIndusty(test.getIndustry());
-                    dataFromLinkedin.setLanguages(test.getLanguages().toString());
-                    dataFromLinkedin.setMainAddress(test.getMainAddress());
-                    dataFromLinkedin.setSkills(test.getSkills().toString());
-                    dataFromLinkedin.setSpecialities(test.getSpecialties());
+                    try{
+                        dataFromLinkedin.setFirstName(test.getFirstName());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setLastName(test.getLastName());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setSkills(test.getSkills().toString());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setSpecialities(test.getSpecialties());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setInterests(test.getInterests());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setEducation(test.getEducations().toString());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setDateOfBirth(test.getDateOfBirth().toString());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setCertifications(test.getCertifications().toString());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setIndusty(test.getIndustry());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setLanguages(test.getLanguages().toString());
+                    }catch (Exception e){}
+                    try{
+                        dataFromLinkedin.setMainAddress(test.getMainAddress());
+                    }catch (Exception e){}
 
                     LinkedInDao linkedInDao = new LinkedInDao(activity);
                     linkedInDao.updateLinkedin(dataFromLinkedin);
