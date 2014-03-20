@@ -16,6 +16,12 @@ public class DataFromLinkedin {
     private String mainAddress;
     private String skills; // mb should be list
     private String specialities; // mb should be list or we can use general expressions
+    private String nullResult = "empty";
+
+    public String getNullResult()
+    {
+        return nullResult;
+    }
 
     public long getId() {
         return id;
@@ -26,31 +32,51 @@ public class DataFromLinkedin {
     }
 
     public String getFirstName() {
-        return firstName;
+        if (firstName != null) {
+            return firstName;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+            this.firstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        if (lastName != null) {
+            return lastName;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+            this.lastName = lastName;
     }
 
     public String getEducation() {
-        return education;
+        if (education != null) {
+            return education;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setEducation(String education) {
-        this.education = education;
+            this.education = education;
     }
 
     public String getInterests() {
-        return interests;
+        if (interests != null) {
+            return interests;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setInterests(String interests) {
@@ -58,7 +84,12 @@ public class DataFromLinkedin {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        if (dateOfBirth != null) {
+            return dateOfBirth;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -66,7 +97,12 @@ public class DataFromLinkedin {
     }
 
     public String getCertifications() {
-        return certifications;
+        if (certifications != null) {
+            return certifications;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setCertifications(String certifications) {
@@ -74,7 +110,12 @@ public class DataFromLinkedin {
     }
 
     public String getIndusty() {
-        return industy;
+        if (industy != null) {
+            return industy;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setIndusty(String industy) {
@@ -82,7 +123,12 @@ public class DataFromLinkedin {
     }
 
     public String getLanguages() {
-        return languages;
+        if (languages != null) {
+            return languages;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setLanguages(String languages) {
@@ -90,7 +136,12 @@ public class DataFromLinkedin {
     }
 
     public String getMainAddress() {
-        return mainAddress;
+        if (mainAddress != null) {
+            return mainAddress;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setMainAddress(String mainAddress) {
@@ -98,7 +149,12 @@ public class DataFromLinkedin {
     }
 
     public String getSkills() {
-        return skills;
+        if (skills != null) {
+            return skills;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setSkills(String skills) {
@@ -106,7 +162,12 @@ public class DataFromLinkedin {
     }
 
     public String getSpecialities() {
-        return specialities;
+        if (specialities != null) {
+            return specialities;
+        }else
+        {
+            return nullResult;
+        }
     }
 
     public void setSpecialities(String specialities) {

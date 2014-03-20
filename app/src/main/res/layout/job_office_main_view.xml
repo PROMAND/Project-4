@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
 
-    <EditText
+    <SearchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_job_office_search"
+        android:inputType="textNoSuggestions"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

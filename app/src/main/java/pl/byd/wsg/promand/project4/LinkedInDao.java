@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
  * Created by Marika on 19.03.14.
  */
 public class LinkedInDao {
+    boolean firsload = true;
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = {
@@ -39,18 +40,23 @@ public class LinkedInDao {
         dbHelper.close();
     }
 
-    public int updateLinkedin(DataFromLinkedin linkedin){
+    public void updateLinkedin(DataFromLinkedin linkedin){
 
-        // get reference to writable DB
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        if (firsload)
+        {
+            firsload = false;
+            createLinkedin(linkedin);
+        }
+        else {
+            // get reference to writable DB
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // updating row
-        int i = db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
-                makeLinkedinRow(linkedin), // column/value
-                MySQLiteHelper.COLUMN_LID + " = ?", // selections
-                new String[]{String.valueOf(linkedin.getId())});
-
-        return i;
+            // updating row
+            int i = db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
+                    makeLinkedinRow(linkedin), // column/value
+                    MySQLiteHelper.COLUMN_LID + " = ?", // selections
+                    new String[]{String.valueOf(linkedin.getId())});
+        }
     }
 
     public void createLinkedin(DataFromLinkedin linkedin) {

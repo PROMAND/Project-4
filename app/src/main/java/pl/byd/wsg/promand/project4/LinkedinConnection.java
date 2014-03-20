@@ -69,7 +69,7 @@ public class LinkedinConnection
                     LinkedinDialog.factory.createLinkedInApiClient(accessToken);
                     client = factory.createLinkedInApiClient(accessToken);
                     Person test = client.getProfileForCurrentUser(EnumSet.allOf(ProfileField.class));
-                    MyCareerUser dataInput = new MyCareerUser();
+//                    MyCareerUser dataInput = new MyCareerUser();
 
                     DataFromLinkedin dataFromLinkedin = new DataFromLinkedin();
 
@@ -79,14 +79,14 @@ public class LinkedinConnection
                     dataFromLinkedin.setEducation(test.getEducations().toString());
                     dataFromLinkedin.setDateOfBirth(test.getDateOfBirth().toString());
                     dataFromLinkedin.setCertifications(test.getCertifications().toString());
-                    dataFromLinkedin.setIndusty(test.getIndustry().toString());
+                    dataFromLinkedin.setIndusty(test.getIndustry());
                     dataFromLinkedin.setLanguages(test.getLanguages().toString());
-                    dataFromLinkedin.setMainAddress(test.getMainAddress().toString());
+                    dataFromLinkedin.setMainAddress(test.getMainAddress());
                     dataFromLinkedin.setSkills(test.getSkills().toString());
                     dataFromLinkedin.setSpecialities(test.getSpecialties().toString());
 
                     LinkedInDao linkedInDao = new LinkedInDao(activity);
-                    linkedInDao.createLinkedin(dataFromLinkedin);
+                    linkedInDao.updateLinkedin(dataFromLinkedin);
 
                 }
                 catch (Exception e)
