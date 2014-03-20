@@ -86,7 +86,7 @@ public class ExperienceClassDao {
                     new String[]{String.valueOf(experience.getCode())}); //selections args
 
         }
-
+//comm
         public void insertExperiencesList(List<String> experiencesList){
             // get reference to writable DB
             SQLiteDatabase db = dbHelper.getWritableDatabase();
