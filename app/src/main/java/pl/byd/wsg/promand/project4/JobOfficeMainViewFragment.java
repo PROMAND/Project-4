@@ -55,9 +55,9 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
         listOfTitles = new ArrayList<String>();
         listOfArticles = new ArrayList<String>();
         listOfEmail = new ArrayList<String>();
-        JsonParserJobs jsonParserJobs = new JsonParserJobs(this);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1);
-        listView.setAdapter(arrayAdapter);
+        new JsonParserJobs(this);
+
+        listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,listOfTitles));
         listView.setOnItemClickListener(this);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -68,16 +68,13 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (search.getQuery().toString() != null) {
-                    ArrayList<Integer> results = search(search.getQuery().toString());
+                if (newText != null) {
+                    ArrayList<Integer> results = search(newText);
                     resultList = new ArrayList<String>();
                     for (Integer i : results) {
-                        resultList.add(listOfTitles.get(i));
+                        resultList.add(listOfTitles.get(i.intValue()));
                         listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, resultList));
                     }
-
-
-                    //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>()
                 }
                 return false;
             }
@@ -92,16 +89,10 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
 
     private ArrayList<Integer> search(String searchQuiery) {
 
-//        ArrayList<String> data = new ArrayList<String>();
-       // ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
        ArrayList<Integer> result = new ArrayList<Integer>();
         for (int i = 0; i != listOfTitles.size(); i++) {
 
-            Pattern pattern = Pattern.compile(searchQuiery.toLowerCase());
-            Matcher matcher = pattern.matcher(listOfTitles.get(i).toLowerCase());
-            boolean matches = matcher.matches();
-
-            if (matches) {
+            if (listOfTitles.get(i).toLowerCase().contains(searchQuiery.toLowerCase())) {
                 result.add(i);
             }
         }

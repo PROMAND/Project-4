@@ -73,9 +73,9 @@ public class LinkedinConnection
 
                     DataFromLinkedin dataFromLinkedin = new DataFromLinkedin();
 
-                    dataFromLinkedin.setFirstName(test.getFirstName().toString());
-                    dataFromLinkedin.setLastName(test.getLastName().toString());
-                    dataFromLinkedin.setInterests(test.getInterests().toString());
+                    dataFromLinkedin.setFirstName(test.getFirstName());
+                    dataFromLinkedin.setLastName(test.getLastName());
+                    dataFromLinkedin.setInterests(test.getInterests());
                     dataFromLinkedin.setEducation(test.getEducations().toString());
                     dataFromLinkedin.setDateOfBirth(test.getDateOfBirth().toString());
                     dataFromLinkedin.setCertifications(test.getCertifications().toString());
@@ -83,7 +83,7 @@ public class LinkedinConnection
                     dataFromLinkedin.setLanguages(test.getLanguages().toString());
                     dataFromLinkedin.setMainAddress(test.getMainAddress());
                     dataFromLinkedin.setSkills(test.getSkills().toString());
-                    dataFromLinkedin.setSpecialities(test.getSpecialties().toString());
+                    dataFromLinkedin.setSpecialities(test.getSpecialties());
 
                     LinkedInDao linkedInDao = new LinkedInDao(activity);
                     linkedInDao.updateLinkedin(dataFromLinkedin);
