@@ -23,6 +23,7 @@ public class ProfilePreviewCvFragment extends Fragment {
     }
     ActionBar.Tab tab;
     private MyCareerUserDao datasource;
+    private LinkedInReaderDao datasourceLinkedin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,13 +36,24 @@ public class ProfilePreviewCvFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button backBtn = (Button) view.findViewById(R.id.btn_back_profile_cv_preview);
 
-        datasource = new MyCareerUserDao(getActivity());
-        datasource.open();
+        datasourceLinkedin = new LinkedInReaderDao(getActivity());
+        datasourceLinkedin.open();
 
-        MyCareerUser myUser = datasource.getUser();
+        int count = datasourceLinkedin.getCount();
 
         TextView textView = (TextView)view.findViewById(R.id.textView_cv_preview);
-        textView.setText(myUser.toString());
+        if(count > 0)
+        {
+            LinkedInReader linkedin = datasourceLinkedin.getLinkedinReader();
+            textView.setText(linkedin.toString());
+        }
+        else {
+            datasource = new MyCareerUserDao(getActivity());
+            datasource.open();
+
+            MyCareerUser myUser = datasource.getUser();
+            textView.setText(myUser.toString());
+        }
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.google.code.linkedinapi.schema.Education;
+
 /**
  * Created by Marika on 19.03.14.
  */
@@ -88,6 +90,7 @@ public class LinkedInDao {
 
     }
 
+
 //    public DataFromLinkedin getLinkedin() {
 //        // 1. get reference to readable DB
 //        SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -100,10 +103,10 @@ public class LinkedInDao {
 //            cursor.moveToFirst();
 //
 //        DataFromLinkedin linkedin = new DataFromLinkedin();
-//        linkedin.setId(cursor.getLong(0));
+//        //linkedin.setId(cursor.getLong(0));
 //        linkedin.setFirstName(cursor.getString(1));
 //        linkedin.setLastName(cursor.getString(2));
-//        linkedin.setEducation(cursor.getString(3));
+//        linkedin.setEducation(cursor.getType(3));
 //        linkedin.setInterests(cursor.getString(4));
 //        linkedin.setDateOfBirth(cursor.getString(5));
 //        linkedin.setCertifications(cursor.getString(6));

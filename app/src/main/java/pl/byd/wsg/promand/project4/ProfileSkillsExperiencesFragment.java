@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Marika on 14.03.14.
@@ -76,18 +78,14 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
         datasource.open();
 
         if(datasource.getAllExperiences().isEmpty()){
-            ArrayList<String> experiencesList = new ArrayList<String>();
-            experiencesList.add("programming");
-            experiencesList.add("sleeping");
-            experiencesList.add("training");
-            experiencesList.add("singing");
-            experiencesList.add("fishing");
-            experiencesList.add("testing");
-            experiencesList.add("coding");
-            experiencesList.add("building");
-            experiencesList.add("running");
-            experiencesList.add("walking");
-            datasource.insertExperiencesList(experiencesList);
+
+            String[] array = getResources().getStringArray(R.array.experiences);
+
+            List<String> experiencesList = new ArrayList<String>();
+            experiencesList = Arrays.asList(array);
+            ArrayList<String> arrayList = new ArrayList<String>(experiencesList);
+
+            datasource.insertExperiencesList(arrayList);
         }
 
         // Array list of experiences
