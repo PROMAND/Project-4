@@ -8,31 +8,19 @@
     <string name="title_section2">Articles</string>
     <string name="title_section3">Events</string>
     <string name="title_section4">Profile</string>
-    <string name="text">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd
-        vsjd hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdshfbskljadbhfsdfsdjfbhsgsjd vsjd
-    </string>
+    <string-array name="experiences">
+        <item>Economy</item>
+        <item>Electronics/Telecommunications</item>
+        <item>Production</item>
+        <item>IT</item>
+        <item>Arts/Culture</item>
+        <item>Health and saftey</item>
+        <item>Tourism</item>
+        <item>Management</item>
+        <item>Agroculture</item>
+        <item>Other</item>
+        <item>Select all</item>
+    </string-array>
 
     <!-- Text areas -->
     <string name="my_profile">My Profile</string>
