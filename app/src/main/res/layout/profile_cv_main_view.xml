@@ -17,26 +17,33 @@
         android:textSize="25sp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_preview_cv"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_cv_main_preview"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:height="60dp"
         android:textSize="25sp"
         android:paddingLeft="26dp"
-        android:paddingRight="26dp"/>
+        android:paddingRight="26dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_download_cv"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_cv_main_download"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:height="60dp"
         android:textSize="25sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
 
 </LinearLayout>

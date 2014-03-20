@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
+    tools:context="pl.byd.wsg.promand.project4.MainActivity2$PlaceholderFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,64 +28,92 @@
         />
 
     <Button
-        android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/my_profile_general"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_my_profile_general"
-        android:height="60dp"
-        android:paddingRight="49dp"
+        android:height="50sp"
+
         android:layout_marginTop="20dp"
         android:layout_below="@+id/txtView_my_profile_main"
-        android:layout_alignLeft="@+id/btn_my_profile_skills"
-        android:layout_alignStart="@+id/btn_my_profile_skills"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+
+        android:layout_width="fill_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="17dp"
+
+
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/my_profile_skills"
+        android:text="Skills"
+        android:background="@drawable/btn_styles"
+        android:height="50sp"
         android:id="@+id/btn_my_profile_skills"
-        android:height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:paddingRight="27dp"
+
         android:layout_below="@+id/btn_my_profile_general"
         android:layout_centerHorizontal="true"
-        android:paddingRight="125dp"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_profile_personal"
+        android:background="@drawable/btn_styles"
+
         android:id="@+id/btn_my_profile_personal"
-        android:height="60dp"
+        android:height="50sp"
         android:paddingRight="38dp"
         android:layout_below="@+id/btn_my_profile_skills"
         android:layout_alignLeft="@+id/btn_my_profile_skills"
         android:layout_alignStart="@+id/btn_my_profile_skills"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_profile_linkedIn"
         android:id="@+id/btn_my_profile_linkedIn"
-        android:height="60dp"
+        android:background="@drawable/btn_styles"
+        android:height="50sp"
         android:layout_below="@+id/btn_my_profile_personal"
         android:layout_alignLeft="@+id/btn_my_profile_personal"
         android:layout_alignStart="@+id/btn_my_profile_personal"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_profile_cv"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_my_profile_cv"
-        android:height="60dp"
+        android:height="50sp"
         android:paddingRight="48dp"
         android:layout_below="@+id/btn_my_profile_linkedIn"
         android:layout_alignLeft="@+id/btn_my_profile_linkedIn"
         android:layout_alignStart="@+id/btn_my_profile_linkedIn"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        />
 
 </RelativeLayout>

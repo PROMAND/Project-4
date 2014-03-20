@@ -4,7 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
+    tools:context="pl.byd.wsg.promand.project4.MainActivity2$PlaceholderFragment">
 
     <Button
         android:layout_width="wrap_content"

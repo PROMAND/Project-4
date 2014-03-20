@@ -16,37 +16,51 @@
         android:textSize="25sp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_experience"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_skills_experience"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:height="60dp"
-        android:textSize="23sp"/>
+        android:textSize="23sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_training"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_skills_training"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:height="60dp"
         android:textSize="23sp"
         android:paddingLeft="27dp"
-        android:paddingRight="27dp"/>
+        android:paddingRight="27dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_education"
+        android:background="@drawable/btn_styles"
         android:id="@+id/btn_skills_education"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:height="60dp"
         android:textSize="23sp"
         android:paddingLeft="17dp"
-        android:paddingRight="17dp"/>
+        android:paddingRight="17dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
 
 </LinearLayout>

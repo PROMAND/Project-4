@@ -15,12 +15,4 @@
         <item name="android:colorBackgroundCacheHint">#00000000</item>
     </style>
 
-    <style name="Marika_Test_Theme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textViewStyle">@style/AppTheme</item>
-        <item name="android:fontFamily">Robato</item>
-        <item name="android:colorBackground">#3DB7CC</item>
-        <item name="android:colorBackgroundCacheHint">#00000000</item>
-    </style>
-
 </resources>
