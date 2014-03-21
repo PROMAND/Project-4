@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,17 +31,19 @@ public class ProfilePersonalMainViewFragment extends JustAFragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        Button back = (Button)view.findViewById(R.id.btn_back_profile_personal);
         Button interests = (Button)view.findViewById(R.id.btn_personal_interests);
         Button strongs = (Button)view.findViewById(R.id.btn_personal_strong_sides);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        view.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onClick(View view) {
-                btnClick(new ProfileMainViewFragment(tab));
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    getFragmentManager().popBackStack();
+                }
+                return false;
             }
         });
-
         interests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

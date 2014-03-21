@@ -15,4 +15,13 @@
         <item name="android:colorBackgroundCacheHint">#00000000</item>
     </style>
 
+    <style name="posible_heme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:textColor">@color/abc_search_url_text_holo</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">Robato</item>
+        <item name="android:windowBackground">@drawable/abc_ab_bottom_solid_dark_holo</item>
+        <item name="android:colorBackgroundCacheHint">@color/bg</item>
+    </style>
+
 </resources>
+

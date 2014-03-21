@@ -6,6 +6,7 @@
     tools:context="pl.byd.wsg.promand.project4.ProfileGeneralInfoFragment">
 
     <Button
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
@@ -30,6 +31,7 @@
         android:background="#fffee8" />
 
     <Button
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_attachment"
@@ -40,7 +42,7 @@
         android:layout_marginBottom="100dp"
         android:textSize="25sp"/>
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_send"
@@ -48,5 +50,6 @@
         android:layout_alignTop="@+id/btn_attach_send_to_office"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:src="@drawable/mail"/>
 </RelativeLayout>

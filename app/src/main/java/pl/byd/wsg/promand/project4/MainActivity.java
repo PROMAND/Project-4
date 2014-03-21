@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -26,10 +27,12 @@ public class MainActivity extends Activity {
         actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         //initiating both tabs and set text to it.
-        ActionBar.Tab ProfileTab = actionbar.newTab().setText("Profile");
+        ActionBar.Tab ProfileTab = actionbar.newTab().setText("");
         ActionBar.Tab JobOfficeTab = actionbar.newTab().setText("Job Office");
         ActionBar.Tab ArticlesTab = actionbar.newTab().setText("Articles");
         ActionBar.Tab EventsTab = actionbar.newTab().setText("Events");
+
+        ProfileTab.setIcon(R.drawable.user);
 
         //create the two fragments we want to use for display content
         Fragment ProfileMainViewFragment = new ProfileMainViewFragment(ProfileTab);
@@ -51,4 +54,5 @@ public class MainActivity extends Activity {
 
 
     }
+
 }

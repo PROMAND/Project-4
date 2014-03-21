@@ -6,6 +6,7 @@
     tools:context="pl.byd.wsg.promand.project4.MainActivity$PlaceholderFragment">
 
     <Button
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
@@ -18,23 +19,25 @@
         android:layout_marginLeft="10dp" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/TextTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TO   :"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editTextTo"
-        android:layout_alignStart="@+id/editTextTo" />
+        android:layout_below="@+id/TextSubject"
+        android:layout_toRightOf="@+id/TextSubject" />
 
     <EditText
+        android:hint="Send to :"
         android:id="@+id/editTextTo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/TextSubject"
-        android:layout_alignStart="@+id/TextSubject" />
+        android:layout_below="@+id/TextTo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subject  :"
@@ -43,12 +46,14 @@
         android:layout_alignRight="@+id/TextViewMessge"
         android:layout_alignEnd="@+id/TextViewMessge" />
     <EditText
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextSub"
         android:layout_above="@+id/TextViewMessge"
         android:layout_toRightOf="@+id/TextSubject" />
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TextViewMessge"
@@ -69,6 +74,7 @@
         android:background="#fffee8" />
 
     <Button
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_attachment"
@@ -80,7 +86,7 @@
         android:layout_marginLeft="10dp"
         android:textSize="25sp"/>
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_send"
@@ -89,6 +95,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="10dp"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:src="@drawable/mail"/>
 
 </RelativeLayout>

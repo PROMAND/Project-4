@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -46,21 +47,14 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
         super.onViewCreated(view, savedInstanceState);
 
         //Buttons
-        Button backBtn = (Button) view.findViewById(R.id.btn_back_experience);
-        Button cancelBtn = (Button)view.findViewById(R.id.btn_experience_cancel);
-
+        ImageButton cancelBtn = (ImageButton) view.findViewById(R.id.btn_experience_cancel);
         //Button onClick methods
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
-            }
-        });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
+               // btnClick(new ProfileSkillsMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
 
@@ -158,7 +152,7 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
 
     //OK button shows selected items
     private void checkButtonClick(View view) {
-        Button okBtn = (Button)view.findViewById(R.id.btn_experience_ok);
+        ImageButton okBtn = (ImageButton) view.findViewById(R.id.btn_experience_ok);
         okBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -175,8 +169,9 @@ public class ProfileSkillsExperiencesFragment extends JustAFragment {
                     }
                 }
                 datasource.updateAllExperiences(experienceList);
-                Toast.makeText(getActivity(), responseText,
+                Toast.makeText(getActivity(), "Experiences updated",
                         Toast.LENGTH_LONG).show();
+                getFragmentManager().popBackStack();
             }
         });
     }

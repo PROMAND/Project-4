@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class ProfileGeneralInfoFragment extends JustAFragment {
     public ProfileGeneralInfoFragment(ActionBar.Tab tab)
@@ -53,15 +54,7 @@ public class ProfileGeneralInfoFragment extends JustAFragment {
         age.setText(String.valueOf(myUser.getAge()));
         gender.setText(myUser.getGender());
 
-        Button backBtn = (Button)view.findViewById(R.id.btn_back_profile_general);
-        Button doneBtn = (Button)view.findViewById(R.id.btn_my_profile_done);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileMainViewFragment(tab));
-            }
-        });
+        ImageButton doneBtn = (ImageButton) view.findViewById(R.id.btn_my_profile_done);
 
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +66,7 @@ public class ProfileGeneralInfoFragment extends JustAFragment {
                 myUser.setGender(gender.getText().toString());
 
                 datasource.updateUser(myUser);
+                getFragmentManager().popBackStack();
             }
         });
     }

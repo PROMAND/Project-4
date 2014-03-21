@@ -51,6 +51,17 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
        final SearchView search = (SearchView) view.findViewById(R.id.editText_job_office_search);
         listView = (ListView)view.findViewById(R.id.listView_job_office);
 
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    System.exit(0);
+                }
+                return false;
+            }
+        });
+
         //Sample data for articles list
         listOfTitles = new ArrayList<String>();
         listOfArticles = new ArrayList<String>();

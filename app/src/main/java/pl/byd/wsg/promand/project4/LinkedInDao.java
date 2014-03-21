@@ -12,7 +12,6 @@ import com.google.code.linkedinapi.schema.Education;
  * Created by Marika on 19.03.14.
  */
 public class LinkedInDao {
-    boolean firsload = true;
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = {
@@ -48,34 +47,48 @@ public class LinkedInDao {
 
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            Cursor cursor = db.rawQuery(MySQLiteHelper.SELECT_COUNT, null);
-            if (cursor != null){
-                cursor.moveToFirst();
+            try {
+                Cursor cursor = db.rawQuery(MySQLiteHelper.SELECT_COUNT, null);
+                if (cursor != null){
+                    cursor.moveToFirst();
 
 
-               if (cursor.getInt(0) > 0)
-               {
-                   // updating row
-                   int i = db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
-                           makeLinkedinRow(linkedin), // column/value
-                           MySQLiteHelper.COLUMN_LID + " = ?", // selections
-                           new String[]{String.valueOf(1)});
-               }
-                else
-               {
-                   createLinkedin(linkedin);
-               }
-        }
+                    if (cursor.getInt(0) > 0)
+                    {
+                        // updating row
+                        db.update(MySQLiteHelper.TABLE_LINKEDIN, //table
+                                makeLinkedinRow(linkedin), // column/value
+                                MySQLiteHelper.COLUMN_LID + " = ?", // selections
+                                new String[]{String.valueOf(1)});
+                    }
+                    else
+                    {
+                        createLinkedin(linkedin);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
 
     }
     public void createLinkedin(DataFromLinkedin linkedin) {
         // get reference to writable DB
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // insert
-        db.insert(MySQLiteHelper.TABLE_LINKEDIN, // table
-                null, //nullColumnHack
-                makeLinkedinRow(linkedin)); // key/value -> keys = column names/ values = column values
+        try {
+            // insert
+            db.insert(MySQLiteHelper.TABLE_LINKEDIN, // table
+                    null, //nullColumnHack
+                    makeLinkedinRow(linkedin)); // key/value -> keys = column names/ values = column values
+        }
+        catch (Exception e)
+        {
+
+        }
+
 
     }
 
@@ -83,10 +96,16 @@ public class LinkedInDao {
         // get reference to writable DB
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // delete
-        db.delete(MySQLiteHelper.TABLE_LINKEDIN, //table name
-                MySQLiteHelper.COLUMN_LID+" = ?",  // selections
-                new String[] { String.valueOf(linkedin.getId()) }); //selections args
+        try {
+            // delete
+            db.delete(MySQLiteHelper.TABLE_LINKEDIN, //table name
+                    MySQLiteHelper.COLUMN_LID+" = ?",  // selections
+                    new String[] { String.valueOf(linkedin.getId()) }); //selections args
+        }
+        catch (Exception e)
+        {
+
+        }
 
     }
 

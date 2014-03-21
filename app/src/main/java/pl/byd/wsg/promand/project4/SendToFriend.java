@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.text.BreakIterator;
@@ -23,15 +24,12 @@ import static android.os.Message.*;
  */
 public class SendToFriend extends JustAFragment implements AdapterView.OnClickListener{
 
-    private SeparateArticle prieviousArticle;
     private View root;
 
-
     String artic;
-    public SendToFriend(ActionBar.Tab tab, String article, SeparateArticle prieviousArticle) {
+    public SendToFriend(ActionBar.Tab tab, String article) {
         super(tab);
         this.artic=article;
-        this.prieviousArticle = prieviousArticle;
     }
 
     @Override
@@ -47,53 +45,45 @@ public class SendToFriend extends JustAFragment implements AdapterView.OnClickLi
         super.onViewCreated(view, savedInstanceState);
 
        final EditText toWhom = (EditText)view.findViewById(R.id.editTextTo);
-        EditText subject = (EditText)view.findViewById(R.id.editTextSub);
          EditText message = (EditText)view.findViewById(R.id.editTextMessage);
         message.setText(artic);
-        Button back = (Button)view.findViewById(R.id.btn_back_send_to_friend);
-        Button attachment = (Button)view.findViewById(R.id.btn_attach_send_to_friend);
-        Button emailSend  = (Button)view.findViewById(R.id.emailSend);
-        final EditText textToFriend = (EditText)view.findViewById(R.id.editTextMessage);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnClick(prieviousArticle);
-            }
-        });
-
-        attachment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Attachment(getActivity());
-            }
-        });
+        ImageButton emailSend  = (ImageButton) view.findViewById(R.id.emailSend);
 
         emailSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText subject = (EditText) root.findViewById(R.id.editTextSub);
                 EditText message = (EditText) root.findViewById(R.id.editTextMessage);
-
-
-
-                String to = toWhom.getText().toString();
-                String subj = subject.getText().toString();
-                String mess = message.getText().toString();
-
-
                 Intent email = new Intent(Intent.ACTION_SEND);
 
-                email.setType("message/rfc822");
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+                try {
+                    String to = toWhom.getText().toString();
+                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getActivity(),"Please Provide email address",Toast.LENGTH_SHORT).show();
+                }
+
+            try {
+                String subj = subject.getText().toString();
                 email.putExtra(Intent.EXTRA_SUBJECT, subj);
+            }
+            catch (Exception e)
+            {}
+
+            try {
+                String mess = message.getText().toString();
                 email.putExtra(Intent.EXTRA_TEXT, mess);
+            }catch (Exception e){
+                }
+
+
 
                 //need this to prompts email client only
-
-
+                email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
-
 
             }
         });

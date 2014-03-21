@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +43,6 @@ public class ProfileMainViewFragment extends JustAFragment {
 
         //for send to your freind functions
 
-
-
         generalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +76,16 @@ public class ProfileMainViewFragment extends JustAFragment {
             @Override
             public void onClick(View view) {
                 btnClick(new ProfilePersonalMainViewFragment(tab));
+            }
+        });
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    System.exit(0);
+                }
+                return false;
             }
         });
     }

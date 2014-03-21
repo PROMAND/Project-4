@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_back"
@@ -47,7 +48,7 @@
         android:layout_marginLeft="10dp"
         android:textSize="25sp"/>
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_done"
@@ -55,5 +56,6 @@
         android:layout_gravity="right"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:src="@drawable/checkmark_circle"/>
 </LinearLayout>

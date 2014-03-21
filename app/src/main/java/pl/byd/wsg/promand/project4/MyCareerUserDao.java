@@ -107,7 +107,7 @@ public class MyCareerUserDao {
                 } while (cursor.moveToNext());
             }
 
-            Log.d("getAllBooks()", users.toString());
+            //Log.d("getAllBooks()", users.toString());
 
             // return books
             return users;
@@ -125,20 +125,27 @@ public class MyCareerUserDao {
                 cursor.moveToFirst();
 
             MyCareerUser user = new MyCareerUser();
-            user.setId(cursor.getLong(0));
-            user.setFirstName(cursor.getString(1));
-            user.setLastName(cursor.getString(2));
-            user.setAge(cursor.getInt(3));
-            user.setGender(cursor.getString(4));
-            user.setTrainings(cursor.getString(5));
-            user.setEducation(cursor.getString(6));
-            user.setInterests(cursor.getString(7));
-            user.setStrongSides(cursor.getString(8));
+            try {
+                user.setId(cursor.getLong(0));
+                user.setFirstName(cursor.getString(1));
+                user.setLastName(cursor.getString(2));
+                user.setAge(cursor.getInt(3));
+                user.setGender(cursor.getString(4));
+                user.setTrainings(cursor.getString(5));
+                user.setEducation(cursor.getString(6));
+                user.setInterests(cursor.getString(7));
+                user.setStrongSides(cursor.getString(8));
+                cursor.close();
+            }
+            catch (Exception e)
+            {
 
+
+            }
             // make sure to close the cursor
-            cursor.close();
-
             return user;
+
+
         }
 
     // helper method to pack a product for the convenience methods

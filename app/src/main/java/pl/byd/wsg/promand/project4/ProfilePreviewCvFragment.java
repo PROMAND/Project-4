@@ -34,7 +34,6 @@ public class ProfilePreviewCvFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        Button backBtn = (Button) view.findViewById(R.id.btn_back_profile_cv_preview);
 
         datasourceLinkedin = new LinkedInReaderDao(getActivity());
         datasourceLinkedin.open();
@@ -54,26 +53,18 @@ public class ProfilePreviewCvFragment extends Fragment {
             MyCareerUser myUser = datasource.getUser();
             textView.setText(myUser.toString());
         }
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileCvMainViewFragment(tab));
-            }
-        });
-
     }
 
     //Button click - to replace current fragment with new one
-    public void btnClick(Fragment fragment)
-    {
-        Fragment fr = fragment;
-        FragmentTransaction fto = getFragmentManager().beginTransaction();
-
-        tab.setTabListener(new MyTabsListener(fr));
-
-        fto.replace(R.id.fragment_container, fr);
-        fto.addToBackStack(null);
-        fto.commit();
-    }
+//    public void btnClick(Fragment fragment)
+//    {
+//        Fragment fr = fragment;
+//        FragmentTransaction fto = getFragmentManager().beginTransaction();
+//
+//        tab.setTabListener(new MyTabsListener(fr));
+//
+//        fto.replace(R.id.fragment_container, fr);
+//        fto.addToBackStack(null);
+//        fto.commit();
+//    }
 }

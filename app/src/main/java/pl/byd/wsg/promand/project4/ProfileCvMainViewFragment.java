@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,15 +34,8 @@ public class ProfileCvMainViewFragment extends JustAFragment {
     {
         super.onViewCreated(view, savedInstanceState);
 
-        Button backToProfileBtn = (Button) view.findViewById(R.id.btn_back_profile_cv_main);
-        Button previewCvBtn = (Button) view.findViewById(R.id.btn_cv_main_preview);
 
-        backToProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileMainViewFragment(tab));
-            }
-        });
+        Button previewCvBtn = (Button) view.findViewById(R.id.btn_cv_main_preview);
 
         previewCvBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +44,16 @@ public class ProfileCvMainViewFragment extends JustAFragment {
             }
         });
 
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    getFragmentManager().popBackStack();
+                }
+                return false;
+            }
+        });
     }
 
 }

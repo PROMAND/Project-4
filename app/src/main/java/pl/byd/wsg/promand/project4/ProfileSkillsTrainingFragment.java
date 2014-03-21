@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,16 +40,8 @@ public class ProfileSkillsTrainingFragment extends JustAFragment {
         final MyCareerUser myUser = datasource.getUser();
 
         final TextView textView = (TextView)view.findViewById(R.id.textView_trainings_area);
-        Button backBtn = (Button) view.findViewById(R.id.btn_back_trainings);
-        Button okBtn = (Button)view.findViewById(R.id.btn_trainings_ok);
-        Button cancelBtn = (Button)view.findViewById(R.id.btn_trainings_cancel);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
-            }
-        });
+        ImageButton okBtn = (ImageButton) view.findViewById(R.id.btn_trainings_ok);
+        ImageButton cancelBtn = (ImageButton) view.findViewById(R.id.btn_trainings_cancel);
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,24 +50,25 @@ public class ProfileSkillsTrainingFragment extends JustAFragment {
                 datasource.updateUser(myUser);
                 Toast.makeText(getActivity(), "Profile updated!",
                         Toast.LENGTH_SHORT).show();
-                btnClick(new ProfileSkillsMainViewFragment(tab));
-
+               // btnClick(new ProfileSkillsMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
+                //btnClick(new ProfileSkillsMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
-
-        if(!myUser.getTrainings().equalsIgnoreCase("")){
+        textView.setHint("Here I will describe my trainings");
+        try {
             textView.setText(myUser.getTrainings());
         }
-        else {
-            textView.setHint("Here I will describe my trainings");
-        }
+       catch (Exception e) {
+       }
+
 
     }
 

@@ -31,17 +31,9 @@ public class ProfileSkillsMainViewFragment extends JustAFragment {
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        Button backBtn = (Button) view.findViewById(R.id.btn_back_profile_skills);
         Button experience = (Button)view.findViewById(R.id.btn_skills_experience);
         Button trainings = (Button)view.findViewById(R.id.btn_skills_training);
         Button education = (Button)view.findViewById(R.id.btn_skills_education);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileMainViewFragment(tab));
-            }
-        });
 
         experience.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -89,14 +89,24 @@ public class MyCareerUser {
     @Override
     public String toString() {
 
-        return "CV \n\n" + "First name: " + getFirstName()
-                + "\n\n Last Name: " + getLastName()
-                + "\n\n Age: " + getAge().toString()
-                + "\n\n Gender: " + getGender()
-                + "\n\n Education: " + getEducation()
-                + "\n\n Trainings: " + getTrainings()
-                + "\n\n Interests: " + getInterests()
-                + "\n\n Strong sides: " + getStrongSides();
+        try {
+            return "CV \n\n" + "First name: " + getFirstName()
+                    + "\n\n Last Name: " + getLastName()
+                    + "\n\n Age: " + getAge().toString()
+                    + "\n\n Gender: " + getGender()
+                    + "\n\n Education: " + getEducation()
+                    + "\n\n Trainings: " + getTrainings()
+                    + "\n\n Interests: " + getInterests()
+                    + "\n\n Strong sides: " + getStrongSides();
+        }
+        catch (NullPointerException e)
+        {
+            return "Please fill data forms to preview cv";
+        }
+        catch (Exception e)
+        {
+            return "Sorry students to drunk to attend interviews";
+        }
     }
 
 }

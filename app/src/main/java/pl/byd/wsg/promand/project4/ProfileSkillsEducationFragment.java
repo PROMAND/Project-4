@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,16 +42,9 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
 
         final TextView textView = (TextView)view.findViewById(R.id.textView_education_area);
 
-        Button backBtn = (Button) view.findViewById(R.id.btn_back_education);
-        Button okBtn = (Button)view.findViewById(R.id.btn_education_ok);
-        Button cancelBtn = (Button)view.findViewById(R.id.btn_education_cancel);
+        ImageButton okBtn = (ImageButton) view.findViewById(R.id.btn_education_ok);
+        ImageButton cancelBtn = (ImageButton) view.findViewById(R.id.btn_education_cancel);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
-            }
-        });
 
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +54,8 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
 
                 Toast.makeText(getActivity(), "Profile updated!",
                         Toast.LENGTH_SHORT).show();
-                btnClick(new ProfileSkillsMainViewFragment(tab));
+                //btnClick(new ProfileSkillsMainViewFragment(tab));
+                getFragmentManager().popBackStack();
 
             }
         });
@@ -68,15 +63,16 @@ public class ProfileSkillsEducationFragment extends JustAFragment {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileSkillsMainViewFragment(tab));
+               // btnClick(new ProfileSkillsMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
-
-        if(!myUser.getEducation().equalsIgnoreCase("")){
+        textView.setHint("Here I will describe my education");
+        try {
             textView.setText(myUser.getEducation());
         }
-        else {
-            textView.setHint("Here I will describe my education");
+        catch (Exception e)
+        {
         }
 
     }

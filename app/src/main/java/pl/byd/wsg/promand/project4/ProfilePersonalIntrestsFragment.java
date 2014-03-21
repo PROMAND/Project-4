@@ -7,10 +7,12 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,14 +43,17 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
         final MyCareerUser myUser = datasource.getUser();
 
         final TextView textView = (TextView)view.findViewById(R.id.textView_interests_area);
-        Button backBtn = (Button)view.findViewById(R.id.btn_back_interests);
-        Button okBtn = (Button)view.findViewById(R.id.btn_interests_ok);
-        Button cancelBtn = (Button)view.findViewById(R.id.btn_interests_cancel);
+        ImageButton okBtn = (ImageButton) view.findViewById(R.id.btn_interests_ok);
+        ImageButton cancelBtn = (ImageButton) view.findViewById(R.id.btn_interests_cancel);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        view.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onClick(View view) {
-                btnClick(new ProfilePersonalMainViewFragment(tab));
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    getFragmentManager().popBackStack();
+                }
+                return false;
             }
         });
 
@@ -59,23 +64,23 @@ public class ProfilePersonalIntrestsFragment extends JustAFragment {
                 datasource.updateUser(myUser);
                 Toast.makeText(getActivity(), "Profile updated!",
                         Toast.LENGTH_SHORT).show();
-                btnClick(new ProfilePersonalMainViewFragment(tab));
+               // btnClick(new ProfilePersonalMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfilePersonalMainViewFragment(tab));
+               // btnClick(new ProfilePersonalMainViewFragment(tab));
+                getFragmentManager().popBackStack();
             }
         });
-
-        if(!myUser.getInterests().equalsIgnoreCase("")){
+        textView.setHint("Here I will describe my personal intrests");
+        try {
             textView.setText(myUser.getInterests());
         }
-        else {
-            textView.setHint("Here I will describe my personal intrests");
-        }
+        catch (Exception e){}
 
 
     }

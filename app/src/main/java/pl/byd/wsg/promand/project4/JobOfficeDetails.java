@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by mesfint on 3/18/14.
@@ -16,24 +18,13 @@ import android.widget.Button;
 public class JobOfficeDetails extends SeparateArticle {
     private SeparateArticle prieviousArticle = this;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-
-
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     public JobOfficeDetails(String ourText,ActionBar.Tab tab) {super(ourText,tab);
-
-   //act= getActivity();
-
     }
-
-
    /* @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.job_office_details, container, false);
@@ -45,9 +36,18 @@ public class JobOfficeDetails extends SeparateArticle {
         super.onViewCreated(view, savedInstanceState);
        // TextView textView = (TextView)view.findViewById(R.id.jobDetail);
         //textView.setText(ourText);
-        Button sendToFreind = (Button)view.findViewById(R.id.button);
+        ImageButton sendToFreind = (ImageButton) view.findViewById(R.id.button);
 
-
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_BACK)
+                {
+                    getFragmentManager().popBackStack();
+                }
+                return false;
+            }
+        });
         sendToFreind.setOnClickListener(new View.OnClickListener() {
 
 
@@ -55,12 +55,7 @@ public class JobOfficeDetails extends SeparateArticle {
             @Override
 
             public void onClick(View v) {
-
-                //act.getIntent().
-                //Intent intent = new Intent(getActivity(),)
-                btnClick(new SendToFriend(tab,ourText, prieviousArticle));
-
-
+                btnClick(new SendToFriend(tab,ourText));
             }
 
         });{
