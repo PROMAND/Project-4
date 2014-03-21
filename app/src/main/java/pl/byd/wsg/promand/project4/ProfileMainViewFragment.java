@@ -43,6 +43,8 @@ public class ProfileMainViewFragment extends JustAFragment {
 
         //for send to your freind functions
 
+
+
         generalInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +63,7 @@ public class ProfileMainViewFragment extends JustAFragment {
         cvBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnClick(new ProfileCvMainViewFragment(tab));
+                btnClick(new ProfilePreviewCvFragment(tab));
             }
         });
 

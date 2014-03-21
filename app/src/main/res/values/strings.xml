@@ -60,7 +60,7 @@
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_link_profile">LINK TO PROFILE</string>
-    <string name="btn_preview_cv">preview CV</string>
+    <string name="btn_preview_cv">Preview CV</string>
     <string name="btn_download_cv">download CV</string>
     <string name="btn_profile">Profile</string>
 

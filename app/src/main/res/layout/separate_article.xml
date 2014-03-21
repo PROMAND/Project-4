@@ -16,7 +16,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/article"/>
+            android:id="@+id/article"
+            android:textSize="25sp"/>
 
         </ScrollView>
 
