@@ -10,17 +10,17 @@
         android:layout_height="wrap_content"
         android:text="Send To Friend"
         android:id="@+id/send_to_freind_button"
+        android:baselineAlignBottom="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_gravity="right"
         android:src="@drawable/mail"
-
         />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:id="@+id/article_container"
         android:layout_marginBottom="88dp">
         <TextView
