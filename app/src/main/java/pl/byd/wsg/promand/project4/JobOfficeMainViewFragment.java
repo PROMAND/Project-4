@@ -48,7 +48,7 @@ public class JobOfficeMainViewFragment extends JustAFragment implements AdapterV
 
         super.onViewCreated(view, savedInstanceState);
 
-       final SearchView search = (SearchView) view.findViewById(R.id.editText_job_office_search);
+        SearchView search = (SearchView) view.findViewById(R.id.editText_job_office_search);
         listView = (ListView)view.findViewById(R.id.listView_job_office);
 
         view.setOnKeyListener(new View.OnKeyListener() {

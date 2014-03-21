@@ -15,13 +15,8 @@ import android.widget.ImageButton;
 /**
  * Created by mesfint on 3/18/14.
  */
-public class JobOfficeDetails extends SeparateArticle {
-    private SeparateArticle prieviousArticle = this;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+public class JobOfficeDetails extends SeparateArticleTemplate {
+    //private SeparateArticle prieviousArticle = this;
 
     public JobOfficeDetails(String ourText,ActionBar.Tab tab) {super(ourText,tab);
     }
@@ -36,7 +31,7 @@ public class JobOfficeDetails extends SeparateArticle {
         super.onViewCreated(view, savedInstanceState);
        // TextView textView = (TextView)view.findViewById(R.id.jobDetail);
         //textView.setText(ourText);
-        ImageButton sendToFreind = (ImageButton) view.findViewById(R.id.button);
+        ImageButton sendToFreind = (ImageButton) view.findViewById(R.id.send_to_freind_button);
 
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
