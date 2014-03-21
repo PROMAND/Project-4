@@ -21,6 +21,7 @@
         <item name="android:fontFamily">Robato</item>
         <item name="android:windowBackground">@drawable/abc_ab_bottom_solid_dark_holo</item>
         <item name="android:colorBackgroundCacheHint">@color/bg</item>
+        <item name="android:imageButtonStyle">@android:color/transparent</item>
     </style>
 
 </resources>

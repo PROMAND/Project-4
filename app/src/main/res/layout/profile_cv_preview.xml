@@ -16,13 +16,18 @@
         android:layout_marginLeft="10dp"
         android:textSize="25sp"/>
 
-    <TextView
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is my CV preview"
-        android:id="@+id/textView_cv_preview"
-        android:background="#ffffe6"
-        android:layout_marginTop="20dp"
-        android:textSize="25sp"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="This is my CV preview"
+            android:id="@+id/textView_cv_preview"
+            android:background="#ffffe6"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"/>
+        </ScrollView>
 
 </LinearLayout>

@@ -15,6 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_gravity="right"
         android:src="@drawable/mail"
+
         />
 
     <ScrollView
